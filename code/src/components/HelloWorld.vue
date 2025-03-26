@@ -50,107 +50,15 @@
           minHeight: '800px',
         }"
       >
-        <!-- 通货部分 -->
-        <div class="section-header">
-          <div class="section-title">通货</div>
-          <div class="section-actions">
-            <a-checkbox
-              :indeterminate="currencyState.indeterminate"
-              v-model:checked="currencyState.checkAll"
-              @change="onCurrencyCheckAllChange"
-            >
-              全选
-            </a-checkbox>
-            <a-button
-              size="small"
-              type="link"
-              @click="toggleAllCurrencySounds(!allCurrencySoundsEnabled)"
-            >
-              {{ allCurrencySoundsEnabled ? "关闭所有音效" : "开启所有音效" }}
-            </a-button>
-          </div>
-        </div>
-        <a-divider />
-        <div class="checkbox-grid">
-          <div
-            v-for="option in currencyOptions"
-            :key="option.value"
-            class="checkbox-item"
-          >
-            <div class="checkbox-wrapper">
-              <a-checkbox
-                :value="option.value"
-                :checked="
-                  currencyState.checkedList.some((item) => item.value === option.value)
-                "
-                @change="(e) => handleCurrencyCheckboxChange(e, option.value)"
-              >
-                {{ option.label }}
-              </a-checkbox>
-              <div class="sound-control">
-                <a-switch
-                  v-model:checked="currencySoundEnabledMap[option.value]"
-                  size="small"
-                  @change="(val) => updateCurrencySound(option.value, val)"
-                />
-                <span class="sound-status">
-                  {{ currencySoundEnabledMap[option.value] ? "音效开启" : "音效关闭" }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <CurrencyFilter
+          :options="currencyOptions"
+          v-model:modelValue="currencyCheckedList"
+        />
 
-        <!-- 装备部分 -->
-        <div class="section-header" style="margin-top: 24px">
-          <div class="section-title">装备</div>
-          <div class="section-actions">
-            <a-checkbox
-              :indeterminate="equipmentState.indeterminate"
-              v-model:checked="equipmentState.checkAll"
-              @change="onEquipmentCheckAllChange"
-            >
-              全选
-            </a-checkbox>
-            <a-button
-              size="small"
-              type="link"
-              @click="toggleAllEquipmentSounds(!allEquipmentSoundsEnabled)"
-            >
-              {{ allEquipmentSoundsEnabled ? "关闭所有音效" : "开启所有音效" }}
-            </a-button>
-          </div>
-        </div>
-        <a-divider />
-        <div class="checkbox-grid">
-          <div
-            v-for="option in equipmentOptions"
-            :key="option.value"
-            class="checkbox-item"
-          >
-            <div class="checkbox-wrapper">
-              <a-checkbox
-                :value="option.value"
-                :checked="
-                  equipmentState.checkedList.some((item) => item.value === option.value)
-                "
-                @change="(e) => handleEquipmentCheckboxChange(e, option.value)"
-              >
-                {{ option.label }}
-              </a-checkbox>
-              <div class="sound-control">
-                <a-switch
-                  v-model:checked="equipmentSoundEnabledMap[option.value]"
-                  size="small"
-                  @change="(val) => updateEquipmentSound(option.value, val)"
-                />
-                <span class="sound-status">
-                  {{ equipmentSoundEnabledMap[option.value] ? "音效开启" : "音效关闭" }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <EquipmentFilter
+          :options="equipmentOptions"
+          v-model:modelValue="equipmentCheckedList"
+        />
 
         <a-divider>过滤器预览</a-divider>
         <a-textarea
@@ -165,7 +73,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, watch, computed } from "vue";
+import { ref, computed } from "vue";
+import { message } from "ant-design-vue";
 import {
   PlusSquareTwoTone,
   VideoCameraTwoTone,
@@ -175,12 +84,15 @@ import {
   MenuFoldOutlined,
   DownloadOutlined,
 } from "@ant-design/icons-vue";
-import { message } from "ant-design-vue";
+import CurrencyFilter from "./CurrencyFilter.vue";
+import EquipmentFilter from "./EquipmentFilter.vue";
 
 const selectedKeys = ref<string[]>(["1"]);
 const collapsed = ref<boolean>(false);
+const currencyCheckedList = ref<Array<{ value: string; soundEnabled: boolean }>>([]);
+const equipmentCheckedList = ref<Array<{ value: string; soundEnabled: boolean }>>([]);
 
-// 通货相关配置
+// 通货选项
 const currencyOptions = [
   { label: "神圣石", value: "Divine Orb" },
   { label: "崇高石", value: "Exalted Orb" },
@@ -196,20 +108,7 @@ const currencyOptions = [
   { label: "油", value: "Oil" },
 ];
 
-const currencySoundEnabledMap = reactive(
-  currencyOptions.reduce((acc, option) => {
-    acc[option.value] = true;
-    return acc;
-  }, {} as Record<string, boolean>)
-);
-
-const currencyState = reactive({
-  indeterminate: false,
-  checkAll: false,
-  checkedList: [] as Array<{ value: string; soundEnabled: boolean }>,
-});
-
-// 装备相关配置
+// 装备选项
 const equipmentOptions = [
   { label: "六连装备", value: "Six-Link" },
   { label: "传奇装备", value: "Unique" },
@@ -225,147 +124,15 @@ const equipmentOptions = [
   { label: "高暴击", value: "High Crit" },
 ];
 
-const equipmentSoundEnabledMap = reactive(
-  equipmentOptions.reduce((acc, option) => {
-    acc[option.value] = true;
-    return acc;
-  }, {} as Record<string, boolean>)
-);
-
-const equipmentState = reactive({
-  indeterminate: false,
-  checkAll: false,
-  checkedList: [] as Array<{ value: string; soundEnabled: boolean }>,
-});
-
-// 计算是否所有通货音效都开启
-const allCurrencySoundsEnabled = computed(() => {
-  return currencyState.checkedList.every((item) => item.soundEnabled);
-});
-
-// 计算是否所有装备音效都开启
-const allEquipmentSoundsEnabled = computed(() => {
-  return equipmentState.checkedList.every((item) => item.soundEnabled);
-});
-
-// 更新通货音效状态
-const updateCurrencySound = (value: string, enabled: boolean) => {
-  currencySoundEnabledMap[value] = enabled;
-  const index = currencyState.checkedList.findIndex((item) => item.value === value);
-  if (index !== -1) {
-    currencyState.checkedList[index].soundEnabled = enabled;
-  }
-};
-
-// 更新装备音效状态
-const updateEquipmentSound = (value: string, enabled: boolean) => {
-  equipmentSoundEnabledMap[value] = enabled;
-  const index = equipmentState.checkedList.findIndex((item) => item.value === value);
-  if (index !== -1) {
-    equipmentState.checkedList[index].soundEnabled = enabled;
-  }
-};
-
-// 通货复选框变化处理
-const handleCurrencyCheckboxChange = (e: any, value: string) => {
-  if (e.target.checked) {
-    if (!currencyState.checkedList.some((item) => item.value === value)) {
-      currencyState.checkedList.push({
-        value,
-        soundEnabled: currencySoundEnabledMap[value],
-      });
-    }
-  } else {
-    currencyState.checkedList = currencyState.checkedList.filter(
-      (item) => item.value !== value
-    );
-  }
-  updateCurrencyCheckAllState();
-};
-
-// 装备复选框变化处理
-const handleEquipmentCheckboxChange = (e: any, value: string) => {
-  if (e.target.checked) {
-    if (!equipmentState.checkedList.some((item) => item.value === value)) {
-      equipmentState.checkedList.push({
-        value,
-        soundEnabled: equipmentSoundEnabledMap[value],
-      });
-    }
-  } else {
-    equipmentState.checkedList = equipmentState.checkedList.filter(
-      (item) => item.value !== value
-    );
-  }
-  updateEquipmentCheckAllState();
-};
-
-// 通货全选变化
-const onCurrencyCheckAllChange = (e: any) => {
-  if (e.target.checked) {
-    currencyState.checkedList = currencyOptions.map((option) => ({
-      value: option.value,
-      soundEnabled: currencySoundEnabledMap[option.value],
-    }));
-  } else {
-    currencyState.checkedList = [];
-  }
-  updateCurrencyCheckAllState();
-};
-
-// 装备全选变化
-const onEquipmentCheckAllChange = (e: any) => {
-  if (e.target.checked) {
-    equipmentState.checkedList = equipmentOptions.map((option) => ({
-      value: option.value,
-      soundEnabled: equipmentSoundEnabledMap[option.value],
-    }));
-  } else {
-    equipmentState.checkedList = [];
-  }
-  updateEquipmentCheckAllState();
-};
-
-// 更新通货全选状态
-const updateCurrencyCheckAllState = () => {
-  const checkedCount = currencyState.checkedList.length;
-  currencyState.checkAll = checkedCount === currencyOptions.length;
-  currencyState.indeterminate = checkedCount > 0 && checkedCount < currencyOptions.length;
-};
-
-// 更新装备全选状态
-const updateEquipmentCheckAllState = () => {
-  const checkedCount = equipmentState.checkedList.length;
-  equipmentState.checkAll = checkedCount === equipmentOptions.length;
-  equipmentState.indeterminate =
-    checkedCount > 0 && checkedCount < equipmentOptions.length;
-};
-
-// 切换所有通货音效
-const toggleAllCurrencySounds = (enabled: boolean) => {
-  currencyState.checkedList.forEach((item) => {
-    item.soundEnabled = enabled;
-    currencySoundEnabledMap[item.value] = enabled;
-  });
-};
-
-// 切换所有装备音效
-const toggleAllEquipmentSounds = (enabled: boolean) => {
-  equipmentState.checkedList.forEach((item) => {
-    item.soundEnabled = enabled;
-    equipmentSoundEnabledMap[item.value] = enabled;
-  });
-};
-
 // 生成过滤器内容
 const filterContent = computed(() => {
-  if (currencyState.checkedList.length === 0 && equipmentState.checkedList.length === 0)
+  if (currencyCheckedList.value.length === 0 && equipmentCheckedList.value.length === 0)
     return "";
 
   const header = `# POE过滤器生成器\n# 生成时间: ${new Date().toLocaleString()}\n\n`;
 
   // 通货具体选项规则
-  const currencyRules = currencyState.checkedList
+  const currencyRules = currencyCheckedList.value
     .map((item) => {
       const option = currencyOptions.find((opt) => opt.value === item.value);
       const itemLabel = option?.label || item.value;
@@ -379,7 +146,7 @@ const filterContent = computed(() => {
     .join("\n\n");
 
   // 装备具体选项规则
-  const equipmentRules = equipmentState.checkedList
+  const equipmentRules = equipmentCheckedList.value
     .map((item) => {
       const option = equipmentOptions.find((opt) => opt.value === item.value);
       const itemLabel = option?.label || item.value;
@@ -401,7 +168,7 @@ const filterContent = computed(() => {
 });
 
 const exportFilter = () => {
-  if (currencyState.checkedList.length === 0 && equipmentState.checkedList.length === 0) {
+  if (currencyCheckedList.value.length === 0 && equipmentCheckedList.value.length === 0) {
     message.warning("请至少选择一个过滤项");
     return;
   }
@@ -458,26 +225,50 @@ const exportFilter = () => {
   margin-left: 10px;
 }
 
+.checkbox-grid::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: #f0f0f0;
+}
+
+.checkbox-grid {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
 .checkbox-item {
-  margin-bottom: 8px;
+  min-width: 150px;
+  max-width: 150px;
+  flex: 1;
 }
 
 .checkbox-wrapper {
   display: flex;
-  align-items: center;
-  width: 100%;
+  flex-direction: column;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  padding: 8px;
+  height: 100%;
 }
 
 .sound-control {
   display: flex;
   align-items: center;
-  margin-left: 8px;
-  gap: 4px;
+  justify-content: space-between;
+  margin-top: 8px;
 }
 
 .sound-status {
   font-size: 12px;
-  width: 60px;
 }
 
 .section-header {
@@ -498,12 +289,6 @@ const exportFilter = () => {
   gap: 16px;
 }
 
-.checkbox-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 8px;
-}
-
 .ant-divider {
   margin: 12px 0;
 }
@@ -520,5 +305,11 @@ const exportFilter = () => {
 
 .ant-checkbox-wrapper > span:last-child {
   padding-right: 4px;
+}
+
+/* 悬停效果 */
+.checkbox-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
 }
 </style>
