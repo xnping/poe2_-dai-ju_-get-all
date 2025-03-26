@@ -120,7 +120,7 @@ const filterContent = computed(() => {
     .map((itemValue) => {
       const itemLabel =
         plainOptions.find((opt) => opt.value === itemValue)?.label || itemValue;
-      return `Show #"通货-${itemLabel}"\n    BaseType "${itemValue}"\n    SetTextColor 255 255 255\n    SetBackgroundColor 50 50 50\n    SetFontSize 42\n`;
+      return `Show #"通货-${itemLabel}"\n  class "Stackable Currency"\n  BaseType "${itemValue}"\n  SetTextColor 255 255 255\n  SetBackgroundColor 50 50 50\n  SetBorderColor 255 0 0\n  SetFontSize 60\n  DisableDropSound True\n  CustomAlertSound "音效\\${itemLabel}.mp3"\n  MinimapIcon 0 Red Circle\n  PlayEffect Red`;
     })
     .join("\n");
 
