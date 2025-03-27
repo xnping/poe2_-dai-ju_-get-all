@@ -47,43 +47,85 @@
         minHeight: '800px',
       }">
         <a-collapse v-model:activeKey="activeKeys">
-          <a-collapse-panel key="1" header="通货">
+          <a-collapse-panel key="1">
+            <template #header>
+              <span class="panel-header">
+                <MoneyCollectOutlined class="panel-icon" />
+                通货
+              </span>
+            </template>
             <CurrencyFilterContainer v-model:modelValue="currencyCheckedList" />
           </a-collapse-panel>
 
-          <a-collapse-panel key="2" header="地图">
+          <a-collapse-panel key="2">
+            <template #header>
+              <span class="panel-header">
+                <CompassOutlined class="panel-icon" />
+                地图
+              </span>
+            </template>
             <EquipmentFilterContainer v-model:modelValue="equipmentCheckedList" />
           </a-collapse-panel>
 
-          <a-collapse-panel key="3" header="珠宝">
+          <a-collapse-panel key="3">
+            <template #header>
+              <span class="panel-header">
+                <StarOutlined class="panel-icon" />
+                珠宝
+              </span>
+            </template>
             <JewelFilterContainer v-model:modelValue="jewelCheckedList" />
           </a-collapse-panel>
 
-          <a-collapse-panel key="4" header="药剂">
+          <a-collapse-panel key="4">
+            <template #header>
+              <span class="panel-header">
+                <ExperimentOutlined class="panel-icon" />
+                药剂
+              </span>
+            </template>
             <FlaskFilterContainer v-model:modelValue="flaskCheckedList" />
           </a-collapse-panel>
 
-          <a-collapse-panel key="5" header="技能石">
+          <a-collapse-panel key="5">
+            <template #header>
+              <span class="panel-header">
+                <ThunderboltOutlined class="panel-icon" />
+                技能石
+              </span>
+            </template>
             <SkillGemFilterContainer v-model:modelValue="skillGemCheckedList" />
           </a-collapse-panel>
 
-          <a-collapse-panel key="6" header="传奇装备">
+          <a-collapse-panel key="6">
+            <template #header>
+              <span class="panel-header">
+                <CrownTwoTone class="panel-icon" />
+                传奇装备
+              </span>
+            </template>
             <UniqueFilterContainer v-model:modelValue="uniqueCheckedList" />
           </a-collapse-panel>
 
-          <a-collapse-panel key="7" header="装备">
+          <a-collapse-panel key="7">
+            <template #header>
+              <span class="panel-header">
+                <InboxOutlined class="panel-icon" />
+                装备
+              </span>
+            </template>
             <NormalEquipmentFilterContainer v-model:modelValue="normalEquipmentCheckedList" />
           </a-collapse-panel>
         </a-collapse>
 
-        <a-modal v-model:visible="previewVisible" title="过滤器预览" width="800px" @cancel="hidePreview">
+        <a-modal v-model:open="previewVisible" title="过滤器预览" width="800px" @cancel="hidePreview">
           <a-textarea :value="filterContent" :rows="20" readonly placeholder="生成的过滤器内容将显示在这里..." />
           <template #footer>
             <a-button @click="hidePreview">关闭</a-button>
           </template>
         </a-modal>
 
-        <a-modal v-model:visible="donationVisible" title="赞助支持" width="400px" @cancel="hideDonation">
+        <a-modal v-model:open="donationVisible" title="赞助支持" width="400px" @cancel="hideDonation">
           <div style="text-align: center; margin-bottom: 20px;">
             <p style="font-size: 16px; color: #666; line-height: 1.8;">
               感谢您对我们的支持！您的每一份赞助都是我们前进的动力。
@@ -107,6 +149,29 @@
   </a-layout>
 </template>
 
+<style scoped>
+.panel-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.panel-icon {
+  font-size: 18px;
+  color: #1890ff;
+}
+
+:deep(.ant-collapse-header) {
+  align-items: center !important;
+}
+
+:deep(.ant-collapse-arrow) {
+  margin-top: 2px !important;
+}
+</style>
+
 <script lang="ts" setup>
 import { ref, computed } from "vue";
 import { message } from "ant-design-vue";
@@ -119,6 +184,15 @@ import {
   MenuFoldOutlined,
   DownloadOutlined,
   EyeOutlined,
+  MoneyCollectOutlined,
+  CompassOutlined,
+  StarOutlined,
+  ExperimentOutlined,
+  ThunderboltOutlined,
+  InboxOutlined,
+  CheckOutlined,
+  SoundOutlined,
+  StopOutlined,
 } from "@ant-design/icons-vue";
 import CurrencyFilterContainer from "./filters/CurrencyFilterContainer.vue";
 import EquipmentFilterContainer from "./filters/EquipmentFilterContainer.vue";
