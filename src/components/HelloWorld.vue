@@ -23,50 +23,27 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 10px">
-        <menu-unfold-outlined
-          v-if="collapsed"
-          class="trigger"
-          @click="() => (collapsed = !collapsed)"
-        />
-        <menu-fold-outlined
-          v-else
-          class="trigger"
-          @click="() => (collapsed = !collapsed)"
-        />
-        <a-button
-          type="primary"
-          style="float: right; margin-right: 20px"
-          @click="exportFilter"
-        >
-          <template #icon><DownloadOutlined /></template>
+        <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
+        <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
+        <a-button type="primary" style="float: right; margin-right: 20px" @click="exportFilter">
+          <template #icon>
+            <DownloadOutlined />
+          </template>
           导出过滤器
         </a-button>
       </a-layout-header>
-      <a-layout-content
-        :style="{
-          margin: '24px 16px',
-          padding: '24px',
-          background: '#fff',
-          minHeight: '800px',
-        }"
-      >
-        <CurrencyFilter
-          :options="currencyOptions"
-          v-model:modelValue="currencyCheckedList"
-        />
+      <a-layout-content :style="{
+        margin: '24px 16px',
+        padding: '24px',
+        background: '#fff',
+        minHeight: '800px',
+      }">
+        <CurrencyFilterContainer v-model:modelValue="currencyCheckedList" />
 
-        <EquipmentFilter
-          :options="equipmentOptions"
-          v-model:modelValue="equipmentCheckedList"
-        />
+        <EquipmentFilterContainer v-model:modelValue="equipmentCheckedList" />
 
         <a-divider>过滤器预览</a-divider>
-        <a-textarea
-          v-model:value="filterContent"
-          :rows="20"
-          readonly
-          placeholder="生成的过滤器内容将显示在这里..."
-        />
+        <a-textarea :value="filterContent" :rows="20" readonly placeholder="生成的过滤器内容将显示在这里..." />
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -84,45 +61,15 @@ import {
   MenuFoldOutlined,
   DownloadOutlined,
 } from "@ant-design/icons-vue";
-import CurrencyFilter from "./CurrencyFilter.vue";
-import EquipmentFilter from "./EquipmentFilter.vue";
+import CurrencyFilterContainer from "./filters/CurrencyFilterContainer.vue";
+import EquipmentFilterContainer from "./filters/EquipmentFilterContainer.vue";
+import { currencyOptions } from './options/CurrencyOptions';
+import { equipmentOptions } from './options/EquipmentOptions';
 
 const selectedKeys = ref<string[]>(["1"]);
 const collapsed = ref<boolean>(false);
 const currencyCheckedList = ref<Array<{ value: string; soundEnabled: boolean }>>([]);
 const equipmentCheckedList = ref<Array<{ value: string; soundEnabled: boolean }>>([]);
-
-// 通货选项
-const currencyOptions = [
-  { label: "神圣石", value: "Divine Orb" },
-  { label: "崇高石", value: "Exalted Orb" },
-  { label: "混沌石", value: "Chaos Orb" },
-  { label: "镜子", value: "Mirror of Kalandra" },
-  { label: "碎片", value: "Splinter" },
-  { label: "手工艺品", value: "Crafting Item" },
-  { label: "地图", value: "Map" },
-  { label: "命运卡", value: "Divination Card" },
-  { label: "精髓", value: "Essence" },
-  { label: "化石", value: "Fossil" },
-  { label: "催化剂", value: "Catalyst" },
-  { label: "油", value: "Oil" },
-];
-
-// 装备选项
-const equipmentOptions = [
-  { label: "六连装备", value: "Six-Link" },
-  { label: "传奇装备", value: "Unique" },
-  { label: "高物品等级", value: "High iLvl" },
-  { label: "高抗性", value: "High Resistance" },
-  { label: "高生命", value: "High Life" },
-  { label: "高伤害", value: "High Damage" },
-  { label: "高护甲", value: "High Armor" },
-  { label: "高闪避", value: "High Evasion" },
-  { label: "高能量护盾", value: "High ES" },
-  { label: "高属性", value: "High Attribute" },
-  { label: "高移动速度", value: "High Movement" },
-  { label: "高暴击", value: "High Crit" },
-];
 
 // 生成过滤器内容
 const filterContent = computed(() => {
@@ -303,7 +250,7 @@ const exportFilter = () => {
   white-space: nowrap;
 }
 
-.ant-checkbox-wrapper > span:last-child {
+.ant-checkbox-wrapper>span:last-child {
   padding-right: 4px;
 }
 
