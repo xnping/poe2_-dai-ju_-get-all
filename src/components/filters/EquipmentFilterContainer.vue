@@ -8,7 +8,7 @@ import { equipmentOptions } from '../options/EquipmentOptions';
 import ItemFilter from '../ItemFilter.vue';
 
 interface Props {
-    modelValue: Array<{ value: string; soundEnabled: boolean }>;
+    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string }>;
 }
 
 defineProps<Props>();

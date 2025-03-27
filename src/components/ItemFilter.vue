@@ -28,6 +28,11 @@
                             {{ soundEnabledMap[option.value] ? "音效开启" : "音效关闭" }}
                         </span>
                     </div>
+                    <div class="color-picker">
+                        <a-input type="color" :value="colorMap[option.value] || '#000000'"
+                            @change="(e) => updateColor(option.value, e.target.value)"
+                            style="width: 60px; height: 24px; padding: 0;" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -46,7 +51,7 @@ interface Props {
     type: 'currency' | 'equipment';
     title: string;
     options: FilterOption[];
-    modelValue: Array<{ value: string; soundEnabled: boolean }>;
+    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string }>;
 }
 
 const props = defineProps<Props>();
@@ -57,6 +62,13 @@ const soundEnabledMap = reactive(
         acc[option.value] = true;
         return acc;
     }, {} as Record<string, boolean>)
+);
+
+const colorMap = reactive(
+    props.options.reduce((acc, option) => {
+        acc[option.value] = '#000000';
+        return acc;
+    }, {} as Record<string, string>)
 );
 
 const state = reactive({
@@ -76,6 +88,15 @@ const allSoundsEnabled = computed(() => {
     return state.checkedList.every((item) => item.soundEnabled);
 });
 
+const updateColor = (value: string, color: string) => {
+    colorMap[value] = color;
+    const index = state.checkedList.findIndex((item) => item.value === value);
+    if (index !== -1) {
+        state.checkedList[index].color = color;
+    }
+    emit("update:modelValue", state.checkedList);
+};
+
 const updateSound = (value: string, enabled: boolean) => {
     soundEnabledMap[value] = enabled;
     const index = state.checkedList.findIndex((item) => item.value === value);
@@ -91,6 +112,7 @@ const handleCheckboxChange = (e: { target: { checked: boolean } }, value: string
             state.checkedList.push({
                 value,
                 soundEnabled: soundEnabledMap[value],
+                color: colorMap[value],
             });
         }
     } else {
@@ -105,6 +127,7 @@ const onCheckAllChange = (e: { target: { checked: boolean } }) => {
         state.checkedList = props.options.map((option) => ({
             value: option.value,
             soundEnabled: soundEnabledMap[option.value],
+            color: colorMap[option.value],
         }));
     } else {
         state.checkedList = [];
@@ -124,6 +147,36 @@ const toggleAllSounds = (enabled: boolean) => {
 // 初始化和监听 modelValue 的变化
 watch(() => props.modelValue, (newValue) => {
     state.checkedList = newValue ? [...newValue] : [];
+    // 更新颜色映射
+    if (newValue) {
+        newValue.forEach(item => {
+            if (item.color) {
+                colorMap[item.value] = item.color;
+            }
+        });
+    }
     updateCheckAllState();
 }, { immediate: true, deep: true });
 </script>
+
+<style scoped>
+.checkbox-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.color-picker {
+    margin-top: 4px;
+}
+
+.checkbox-item {
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.checkbox-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+</style>
