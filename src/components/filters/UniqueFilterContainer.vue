@@ -1,10 +1,10 @@
 <template>
-    <ItemFilter type="equipment" title="地图" :options="equipmentOptions" :modelValue="modelValue"
+    <ItemFilter type="unique" title="传奇装备" :options="uniqueOptions" :modelValue="modelValue"
         @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 
 <script lang="ts" setup>
-import { equipmentOptions } from '../options/EquipmentOptions';
+import { uniqueOptions } from '../options/UniqueOptions';
 import ItemFilter from '../ItemFilter.vue';
 
 interface Props {

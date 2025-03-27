@@ -1,7 +1,7 @@
 
 export const currencyOptions = [
+    { label: "卡兰德的魔镜", value: "Mirror of Kalandra" },
     { label: "神圣石", value: "Divine Orb" },
-    { label: "崇高石", value: "Exalted Orb" },
     { label: "混沌石", value: "Chaos Orb" },
     { label: "镜子", value: "Mirror of Kalandra" },
     { label: "碎片", value: "Splinter" },

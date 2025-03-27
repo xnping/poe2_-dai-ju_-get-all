@@ -1,10 +1,10 @@
 <template>
-    <ItemFilter type="equipment" title="地图" :options="equipmentOptions" :modelValue="modelValue"
+    <ItemFilter type="flask" title="药剂" :options="flaskOptions" :modelValue="modelValue"
         @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 
 <script lang="ts" setup>
-import { equipmentOptions } from '../options/EquipmentOptions';
+import { flaskOptions } from '../options/FlaskOptions';
 import ItemFilter from '../ItemFilter.vue';
 
 interface Props {

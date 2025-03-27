@@ -1,5 +1,5 @@
 <template>
-    <ItemFilter type="equipment" title="地图" :options="equipmentOptions" :modelValue="modelValue"
+    <ItemFilter type="equipment" title="装备" :options="equipmentOptions" :modelValue="modelValue"
         @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 

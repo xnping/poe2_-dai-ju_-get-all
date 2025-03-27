@@ -1,10 +1,10 @@
 <template>
-    <ItemFilter type="equipment" title="地图" :options="equipmentOptions" :modelValue="modelValue"
+    <ItemFilter type="skillgem" title="技能石" :options="skillGemOptions" :modelValue="modelValue"
         @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 
 <script lang="ts" setup>
-import { equipmentOptions } from '../options/EquipmentOptions';
+import { skillGemOptions } from '../options/SkillGemOptions';
 import ItemFilter from '../ItemFilter.vue';
 
 interface Props {
