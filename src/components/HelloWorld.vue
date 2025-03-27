@@ -11,11 +11,11 @@
           <VideoCameraTwoTone />
           <span>视频教程</span>
         </a-menu-item>
-        <a-menu-item key="3">
+        <a-menu-item key="3" @click="joinUs">
           <ApiTwoTone />
           <span>加入我们</span>
         </a-menu-item>
-        <a-menu-item key="4">
+        <a-menu-item key="4" @click="showDonation">
           <CrownTwoTone />
           <span>赞助</span>
         </a-menu-item>
@@ -25,12 +25,20 @@
       <a-layout-header style="background: #fff; padding: 10px">
         <menu-unfold-outlined v-if="collapsed" class="trigger" @click="() => (collapsed = !collapsed)" />
         <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)" />
-        <a-button type="primary" style="float: right; margin-right: 20px" @click="exportFilter">
-          <template #icon>
-            <DownloadOutlined />
-          </template>
-          导出过滤器
-        </a-button>
+        <div style="float: right;">
+          <a-button type="primary" style="margin-right: 10px" @click="exportFilter">
+            <template #icon>
+              <DownloadOutlined />
+            </template>
+            导出过滤器
+          </a-button>
+          <a-button type="primary" @click="showPreview">
+            <template #icon>
+              <EyeOutlined />
+            </template>
+            预览过滤器
+          </a-button>
+        </div>
       </a-layout-header>
       <a-layout-content :style="{
         margin: '24px 16px',
@@ -68,8 +76,32 @@
           </a-collapse-panel>
         </a-collapse>
 
-        <a-divider>过滤器预览</a-divider>
-        <a-textarea :value="filterContent" :rows="20" readonly placeholder="生成的过滤器内容将显示在这里..." />
+        <a-modal v-model:visible="previewVisible" title="过滤器预览" width="800px" @cancel="hidePreview">
+          <a-textarea :value="filterContent" :rows="20" readonly placeholder="生成的过滤器内容将显示在这里..." />
+          <template #footer>
+            <a-button @click="hidePreview">关闭</a-button>
+          </template>
+        </a-modal>
+
+        <a-modal v-model:visible="donationVisible" title="赞助支持" width="400px" @cancel="hideDonation">
+          <div style="text-align: center; margin-bottom: 20px;">
+            <p style="font-size: 16px; color: #666; line-height: 1.8;">
+              感谢您对我们的支持！您的每一份赞助都是我们前进的动力。
+              我们会继续努力，为大家提供更好的POE过滤器工具。
+              您的支持将帮助我们：
+            </p>
+            <ul style="list-style: none; padding: 0; color: #666; margin-bottom: 20px;">
+              <li>✨ 持续优化和更新功能</li>
+              <li>🚀 提供更稳定的服务器支持</li>
+              <li>💡 开发更多实用的工具</li>
+              <li>🌟 创造更好的用户体验</li>
+            </ul>
+          </div>
+          <img src="../assets/home.png" alt="赞助二维码" style="width: 100%; height: auto;" />
+          <template #footer>
+            <a-button @click="hideDonation">关闭</a-button>
+          </template>
+        </a-modal>
       </a-layout-content>
     </a-layout>
   </a-layout>
@@ -86,6 +118,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   DownloadOutlined,
+  EyeOutlined,
 } from "@ant-design/icons-vue";
 import CurrencyFilterContainer from "./filters/CurrencyFilterContainer.vue";
 import EquipmentFilterContainer from "./filters/EquipmentFilterContainer.vue";
@@ -100,6 +133,38 @@ import '../styles/HelloWorld.css';
 const selectedKeys = ref<string[]>(["1"]);
 const collapsed = ref<boolean>(false);
 const activeKeys = ref<string[]>(["1", "2", "3", "4", "5", "6", "7"]);
+const previewVisible = ref<boolean>(false);
+const donationVisible = ref<boolean>(false);
+
+const showPreview = () => {
+  if (currencyCheckedList.value.length === 0 &&
+    equipmentCheckedList.value.length === 0 &&
+    jewelCheckedList.value.length === 0 &&
+    flaskCheckedList.value.length === 0 &&
+    skillGemCheckedList.value.length === 0 &&
+    uniqueCheckedList.value.length === 0 &&
+    normalEquipmentCheckedList.value.length === 0) {
+    message.warning("请至少选择一个过滤项");
+    return;
+  }
+  previewVisible.value = true;
+};
+
+const hidePreview = () => {
+  previewVisible.value = false;
+};
+
+const joinUs = () => {
+  window.open('https://kook.vip/8lhssl', '_blank');
+};
+
+const showDonation = () => {
+  donationVisible.value = true;
+};
+
+const hideDonation = () => {
+  donationVisible.value = false;
+};
 const currencyCheckedList = ref<Array<{ value: string; soundEnabled: boolean; color?: string }>>([]);
 const equipmentCheckedList = ref<Array<{ value: string; soundEnabled: boolean; color?: string }>>([]);
 const jewelCheckedList = ref<Array<{ value: string; soundEnabled: boolean; color?: string }>>([]);

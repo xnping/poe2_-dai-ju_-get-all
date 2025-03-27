@@ -16,38 +16,73 @@ interface FilterRuleOptions {
     label: string;
     value: string;
     soundEnabled: boolean;
-    type: 'currency' | 'equipment';
+    type: 'currency' | 'equipment' | 'jewel' | 'flask' | 'skillgem' | 'unique' | 'normalequipment';
     color?: string;
+    bgColor?: string;
 }
 
 function generateBasicRule(options: FilterRuleOptions): string {
-    const { label, value, soundEnabled, type, color } = options;
+    const { label, value, soundEnabled, type, color, bgColor } = options;
     const defaultColor = type === 'currency' ? '#FF0000' : '#00FF00';
-    const rgbColor = color ? hexToRgb(color) : hexToRgb(defaultColor);
+    const defaultBgColor = '#FFFFFF';
 
-    const typeConfig = type === 'currency'
-        ? {
-            class: 'Stackable Currency',
-            icon: 'Red',
+    const rgbColor = color ? hexToRgb(color) : hexToRgb(defaultColor);
+    const rgbBgColor = bgColor ? hexToRgb(bgColor) : hexToRgb(defaultBgColor);
+
+    const typeConfig = (() => {
+        switch (type) {
+            case 'currency':
+                return {
+                    class: 'Stackable Currency',
+                    icon: 'Red'
+                };
+            case 'equipment':
+                return {
+                    class: 'Equipment',
+                    icon: 'Green'
+                };
+            case 'jewel':
+                return {
+                    class: 'Jewel',
+                    icon: 'Blue'
+                };
+            case 'flask':
+                return {
+                    class: 'Flask',
+                    icon: 'Yellow'
+                };
+            case 'skillgem':
+                return {
+                    class: 'Gem',
+                    icon: 'White'
+                };
+            case 'unique':
+                return {
+                    class: 'Equipment',
+                    icon: 'Brown'
+                };
+            case 'normalequipment':
+                return {
+                    class: 'Equipment',
+                    icon: 'Green'
+                };
+            default:
+                return {
+                    class: 'Equipment',
+                    icon: 'Green'
+                };
         }
-        : {
-            class: 'Equipment',
-            icon: 'Green',
-        };
+    })();
 
     const soundSetting = soundEnabled
         ? `  CustomAlertSound "音效\\${label}.mp3"`
         : "  DisableDropSound True\n  DisableAlertSound True";
 
-    // 计算背景色（原始颜色的20%亮度）
-    const [r, g, b] = rgbColor.split(' ').map(n => Math.floor(parseInt(n) * 0.2));
-    const backgroundColor = `${r} ${g} ${b}`;
-
     return `Show #"${type === 'currency' ? '通货' : '装备'}-${label}"
   Class "${typeConfig.class}"
   BaseType "${value}"
-  SetTextColor 255 255 255
-  SetBackgroundColor ${backgroundColor}
+  SetTextColor ${rgbColor}
+  SetBackgroundColor ${rgbBgColor}
   SetBorderColor ${rgbColor}
   SetFontSize 60
 ${soundSetting}

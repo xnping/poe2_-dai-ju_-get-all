@@ -28,10 +28,19 @@
                             {{ soundEnabledMap[option.value] ? "音效开启" : "音效关闭" }}
                         </span>
                     </div>
-                    <div class="color-picker">
-                        <a-input type="color" :value="colorMap[option.value] || '#000000'"
-                            @change="(e) => updateColor(option.value, e.target.value)"
-                            style="width: 60px; height: 24px; padding: 0;" />
+                    <div class="color-pickers">
+                        <div class="color-picker">
+                            <span class="color-label">边框/文字颜色：</span>
+                            <a-input type="color" :value="colorMap[option.value] || '#ff0000'"
+                                @change="(e) => updateColor(option.value, e.target.value)"
+                                style="width: 60px; height: 24px; padding: 0;" />
+                        </div>
+                        <div class="color-picker">
+                            <span class="color-label">背景颜色：</span>
+                            <a-input type="color" :value="bgColorMap[option.value] || '#ffffff'"
+                                @change="(e) => updateBgColor(option.value, e.target.value)"
+                                style="width: 60px; height: 24px; padding: 0;" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -51,7 +60,7 @@ interface Props {
     type: 'currency' | 'equipment';
     title: string;
     options: FilterOption[];
-    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string }>;
+    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string; bgColor?: string }>;
 }
 
 const props = defineProps<Props>();
@@ -66,7 +75,14 @@ const soundEnabledMap = reactive(
 
 const colorMap = reactive(
     props.options.reduce((acc, option) => {
-        acc[option.value] = '#000000';
+        acc[option.value] = '#ff0000';  // 设置默认颜色为红色
+        return acc;
+    }, {} as Record<string, string>)
+);
+
+const bgColorMap = reactive(
+    props.options.reduce((acc, option) => {
+        acc[option.value] = '#ffffff';  // 设置默认背景色为白色
         return acc;
     }, {} as Record<string, string>)
 );
@@ -93,8 +109,19 @@ const updateColor = (value: string, color: string) => {
     const index = state.checkedList.findIndex((item) => item.value === value);
     if (index !== -1) {
         state.checkedList[index].color = color;
+        state.checkedList[index].bgColor = bgColorMap[value];  // 确保背景色也被包含
     }
     emit("update:modelValue", state.checkedList);
+};
+
+const updateBgColor = (value: string, color: string) => {
+    bgColorMap[value] = color;
+    const index = state.checkedList.findIndex((item) => item.value === value);
+    if (index !== -1) {
+        const updatedItem = { ...state.checkedList[index], bgColor: color };
+        state.checkedList.splice(index, 1, updatedItem);
+    }
+    emit("update:modelValue", [...state.checkedList]);
 };
 
 const updateSound = (value: string, enabled: boolean) => {
@@ -113,6 +140,7 @@ const handleCheckboxChange = (e: { target: { checked: boolean } }, value: string
                 value,
                 soundEnabled: soundEnabledMap[value],
                 color: colorMap[value],
+                bgColor: bgColorMap[value],
             });
         }
     } else {
@@ -128,6 +156,7 @@ const onCheckAllChange = (e: { target: { checked: boolean } }) => {
             value: option.value,
             soundEnabled: soundEnabledMap[option.value],
             color: colorMap[option.value],
+            bgColor: bgColorMap[option.value],
         }));
     } else {
         state.checkedList = [];
@@ -153,6 +182,9 @@ watch(() => props.modelValue, (newValue) => {
             if (item.color) {
                 colorMap[item.value] = item.color;
             }
+            if (item.bgColor) {
+                bgColorMap[item.value] = item.bgColor;
+            }
         });
     }
     updateCheckAllState();
@@ -166,8 +198,22 @@ watch(() => props.modelValue, (newValue) => {
     gap: 8px;
 }
 
+.color-pickers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .color-picker {
-    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.color-label {
+    font-size: 12px;
+    color: #666;
+    min-width: 80px;
 }
 
 .checkbox-item {

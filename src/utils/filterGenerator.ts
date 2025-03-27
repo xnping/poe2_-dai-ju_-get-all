@@ -10,6 +10,7 @@ interface FilterItem {
     value: string;
     soundEnabled: boolean;
     color?: string;
+    bgColor?: string;
 }
 
 function generateHeader(): string {
@@ -25,7 +26,8 @@ function generateCurrencyRules(items: FilterItem[]): string {
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'currency',
-                color: item.color
+                color: item.color,
+                bgColor: item.bgColor
             };
             return generateBasicRule(ruleOptions);
         })
@@ -41,7 +43,8 @@ function generateEquipmentRules(items: FilterItem[]): string {
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'equipment',
-                color: item.color
+                color: item.color,
+                bgColor: item.bgColor
             };
             return generateBasicRule(ruleOptions);
         })
@@ -57,7 +60,8 @@ function generateJewelRules(items: FilterItem[]): string {
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'jewel',
-                color: item.color
+                color: item.color,
+                bgColor: item.bgColor
             };
             return generateBasicRule(ruleOptions);
         })
@@ -73,7 +77,8 @@ function generateFlaskRules(items: FilterItem[]): string {
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'flask',
-                color: item.color
+                color: item.color,
+                bgColor: item.bgColor
             };
             return generateBasicRule(ruleOptions);
         })
@@ -89,7 +94,8 @@ function generateSkillGemRules(items: FilterItem[]): string {
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'skillgem',
-                color: item.color
+                color: item.color,
+                bgColor: item.bgColor
             };
             return generateBasicRule(ruleOptions);
         })
@@ -105,7 +111,8 @@ function generateUniqueRules(items: FilterItem[]): string {
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'unique',
-                color: item.color
+                color: item.color,
+                bgColor: item.bgColor
             };
             return generateBasicRule(ruleOptions);
         })
@@ -121,7 +128,8 @@ function generateNormalEquipmentRules(items: FilterItem[]): string {
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'normalequipment',
-                color: item.color
+                color: item.color,
+                bgColor: item.bgColor
             };
             return generateBasicRule(ruleOptions);
         })
