@@ -16,7 +16,7 @@
 import { getOptionIcon } from '../utils/iconMapping';
 import type { FilterOption, FilterItem } from '../types';
 
-defineProps<{
+const props = defineProps<{
     options: FilterOption[];
     checkedList: FilterItem[];
 }>();
@@ -26,7 +26,7 @@ defineEmits<{
 }>();
 
 const isChecked = (value: string) => {
-    return !!checkedList.find(item => item.value === value);
+    return !!props.checkedList.find(item => item.value === value);
 };
 </script>
 

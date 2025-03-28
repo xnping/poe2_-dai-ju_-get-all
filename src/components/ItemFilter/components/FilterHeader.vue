@@ -7,8 +7,8 @@
             </span>
         </div>
         <div class="section-actions">
-            <a-checkbox class="select-all" :indeterminate="indeterminate" v-model:checked="checkAll"
-                @change="onCheckAllChange">
+            <a-checkbox class="select-all" :indeterminate="indeterminate" :checked="checkAll"
+                @change="(e) => $emit('checkAllChange', e.target.checked)">
                 <span class="select-all-content">
                     <CheckOutlined class="select-all-icon" />
                     全选

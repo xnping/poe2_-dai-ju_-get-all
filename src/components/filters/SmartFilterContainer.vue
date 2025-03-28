@@ -4,14 +4,17 @@
 </template>
 
 <script lang="ts" setup>
-import ItemFilter from '../ItemFilter.vue';
-import { filterOptions, filterTitles } from '../options/filterOptions';
+import ItemFilter from '../ItemFilter/index.vue';
+import { filterOptions, filterTitles } from '../options/filterOptions.ts';
+import type { FilterType, FilterItem } from '../ItemFilter/types';
 
 interface Props {
-    type: keyof typeof filterOptions;
-    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string }>;
+    type: FilterType;
+    modelValue: FilterItem[];
 }
 
 defineProps<Props>();
-defineEmits(['update:modelValue']);
+defineEmits<{
+    (e: 'update:modelValue', value: FilterItem[]): void;
+}>();
 </script>
