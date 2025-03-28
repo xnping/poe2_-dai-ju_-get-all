@@ -11,9 +11,7 @@ export default defineConfig({
     emptyOutDir: true, // 构建前清空输出目录
     chunkSizeWarningLimit: 1600, // 增加块大小警告限制
     rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-      },
+      input: resolve(__dirname, 'index.html'),
       output: {
         manualChunks: {
           'ant-design-vue': ['ant-design-vue'],
@@ -39,5 +37,8 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src')
     }
+  },
+  optimizeDeps: {
+    include: ['vue', 'ant-design-vue', 'lodash-es', '@ant-design/icons-vue']
   }
 })
