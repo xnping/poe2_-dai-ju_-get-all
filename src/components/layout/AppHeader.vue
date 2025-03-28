@@ -4,12 +4,6 @@
         <menu-fold-outlined v-else class="trigger" @click="toggleCollapse" />
         <div class="header-actions">
             <a-button-group class="action-group">
-                <a-button type="primary" @click="showConfigManager">
-                    <template #icon>
-                        <SettingOutlined />
-                    </template>
-                    配置管理1
-                </a-button>
                 <a-button type="primary" @click="exportFilter">
                     <template #icon>
                         <DownloadOutlined />
@@ -33,7 +27,6 @@ import {
     MenuFoldOutlined,
     DownloadOutlined,
     EyeOutlined,
-    SettingOutlined,
 } from '@ant-design/icons-vue';
 import './styles/AppHeader.css';
 
@@ -45,7 +38,6 @@ const emit = defineEmits<{
     'update:collapsed': [value: boolean]
     'showPreview': []
     'exportFilter': []
-    'showConfigManager': []
 }>();
 
 const toggleCollapse = () => {
@@ -58,9 +50,5 @@ const showPreview = () => {
 
 const exportFilter = () => {
     emit('exportFilter');
-};
-
-const showConfigManager = () => {
-    emit('showConfigManager');
 };
 </script>

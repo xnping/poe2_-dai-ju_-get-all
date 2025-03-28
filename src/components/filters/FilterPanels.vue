@@ -1,7 +1,5 @@
 <template>
-    <!-- 模板内容保持不变 -->
     <a-collapse v-model:activeKey="activeKeys">
-        <!-- 折叠面板内容保持不变 -->
         <a-collapse-panel key="1">
             <template #header>
                 <span class="panel-header">
@@ -99,14 +97,13 @@ import UniqueFilterContainer from './UniqueFilterContainer.vue';
 import NormalEquipmentFilterContainer from './NormalEquipmentFilterContainer.vue';
 
 // Type imports
-import type { FilterConfig } from './types/config';
 import type { FilterItem } from '../ItemFilter/types';
 
 // Style import
 import './styles/FilterPanels.css';
 
 // Component logic
-const activeKeys = ref<string[]>(['1', '2', '3', '4', '5', '6', '7']);
+const activeKeys = ref<string[]>([]);
 
 // Checked lists
 const currencyCheckedList = ref<FilterItem[]>([]);
@@ -116,71 +113,6 @@ const flaskCheckedList = ref<FilterItem[]>([]);
 const skillGemCheckedList = ref<FilterItem[]>([]);
 const uniqueCheckedList = ref<FilterItem[]>([]);
 const normalEquipmentCheckedList = ref<FilterItem[]>([]);
-
-// Configuration management
-const getCurrentConfig = (): FilterConfig => {
-    const config: FilterConfig = {
-        version: '1.0.0',
-        lastModified: new Date().toISOString(),
-        filters: {
-            currency: {
-                enabled: true,
-                items: currencyCheckedList.value
-            },
-            equipment: {
-                enabled: true,
-                items: equipmentCheckedList.value
-            },
-            jewel: {
-                enabled: true,
-                items: jewelCheckedList.value
-            },
-            flask: {
-                enabled: true,
-                items: flaskCheckedList.value
-            },
-            skillgem: {
-                enabled: true,
-                items: skillGemCheckedList.value
-            },
-            unique: {
-                enabled: true,
-                items: uniqueCheckedList.value
-            },
-            normalequipment: {
-                enabled: true,
-                items: normalEquipmentCheckedList.value
-            }
-        }
-    };
-    return config;
-};
-
-const applyConfig = (config: FilterConfig): void => {
-    const { filters } = config;
-
-    if (filters.currency?.enabled) {
-        currencyCheckedList.value = filters.currency.items;
-    }
-    if (filters.equipment?.enabled) {
-        equipmentCheckedList.value = filters.equipment.items;
-    }
-    if (filters.jewel?.enabled) {
-        jewelCheckedList.value = filters.jewel.items;
-    }
-    if (filters.flask?.enabled) {
-        flaskCheckedList.value = filters.flask.items;
-    }
-    if (filters.skillgem?.enabled) {
-        skillGemCheckedList.value = filters.skillgem.items;
-    }
-    if (filters.unique?.enabled) {
-        uniqueCheckedList.value = filters.unique.items;
-    }
-    if (filters.normalequipment?.enabled) {
-        normalEquipmentCheckedList.value = filters.normalequipment.items;
-    }
-};
 
 // Watch for changes
 watch(
@@ -207,8 +139,6 @@ defineExpose({
     flaskCheckedList,
     skillGemCheckedList,
     uniqueCheckedList,
-    normalEquipmentCheckedList,
-    getCurrentConfig,
-    applyConfig
+    normalEquipmentCheckedList
 });
 </script>
