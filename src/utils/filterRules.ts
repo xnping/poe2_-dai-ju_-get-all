@@ -68,10 +68,11 @@ function generateBasicRule(options: FilterRuleOptions): string {
             case 'skillgem':
                 return {
                     class: null,
-                    icon: 'White',
-                    iconShape: 'Circle',
+                    icon: 'Orange',
+                    iconShape: 'Kite',
+                    iconSize: 1,
                     name: '技能宝石',
-                    fontSize: 60
+                    fontSize: 40
                 };
             case 'unique':
                 return {
@@ -100,31 +101,18 @@ function generateBasicRule(options: FilterRuleOptions): string {
         }
     })();
 
-    // 根据宝石类型设置音效名称
-    let soundName = label;
-    if (type === 'skillgem') {
-        if (value.includes('Support')) {
-            soundName = '辅助宝石';
-        } else if (value.includes('Spirit')) {
-            soundName = '精魂宝石';
-        } else {
-            soundName = '技能石';
-        }
-    } else if (type === 'equipment') {
-        soundName = '高级地图';
-    }
-
     // 构建基本规则
-    let result = `Show #"${typeConfig.name}-${label}"\n`;
-    if (typeConfig.class) {
-        result += `  Class "${typeConfig.class}"\n`;
-    }
-    result += `  BaseType "${value}"\n`;
+    let result = `Show #${typeConfig.name}-${label}\n`;
 
     // 为技能石添加 ItemLevel 属性
     if (type === 'skillgem' && tap) {
         result += `  ItemLevel ${tap}\n`;
     }
+
+    if (typeConfig.class) {
+        result += `  Class "${typeConfig.class}"\n`;
+    }
+    result += `  BaseType "${value}"\n`;
 
     // 添加其他属性
     result += `  SetTextColor ${rgbColor}\n`;
@@ -138,12 +126,19 @@ function generateBasicRule(options: FilterRuleOptions): string {
         result += `  PlayEffect ${typeConfig.icon}\n`;
         result += '#    PlayAlertSound 4 300\n';
         if (soundEnabled) {
-            result += `  CustomAlertSound "音效\\${soundName}.mp3" 300\n`;
+            result += `  CustomAlertSound "音效\\高级地图.mp3" 300\n`;
+        }
+        result += '  DisableDropSound';
+    } else if (type === 'skillgem') {
+        result += `  MinimapIcon ${typeConfig.iconSize} ${typeConfig.icon} ${typeConfig.iconShape}\n`;
+        result += '#    PlayAlertSound 15 300\n';
+        if (soundEnabled) {
+            result += `  CustomAlertSound "音效\\宝石.mp3" 300\n`;
         }
         result += '  DisableDropSound';
     } else {
         if (soundEnabled) {
-            result += `  CustomAlertSound "音效\\${soundName}.mp3"\n`;
+            result += `  CustomAlertSound "音效\\${label}.mp3"\n`;
         } else {
             result += "  DisableDropSound True\n  DisableAlertSound True\n";
         }
