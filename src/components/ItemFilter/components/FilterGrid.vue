@@ -44,10 +44,7 @@ const isLoading = (value: string, label: string) => {
     return loadingItems.value.has(createKey(value, label));
 };
 
-const isDisabled = (value: string) => {
-    // 这里可以添加禁用逻辑，例如基于某些条件禁用特定选项
-    return false;
-};
+const isDisabled = () => false;
 
 const handleChange = async (e: Event, option: FilterOption) => {
     const checked = (e.target as HTMLInputElement).checked;
