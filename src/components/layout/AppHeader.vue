@@ -8,7 +8,7 @@
                     <template #icon>
                         <SettingOutlined />
                     </template>
-                    配置管理
+                    配置管理1
                 </a-button>
                 <a-button type="primary" @click="exportFilter">
                     <template #icon>
