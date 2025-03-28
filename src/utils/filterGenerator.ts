@@ -74,7 +74,7 @@ function generateJewelRules(items: FilterItem[]): string {
 function generateFlaskRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = flaskOptions.find((opt) => opt.value === item.value && opt.label === item.label);
+            flaskOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -109,7 +109,7 @@ function generateSkillGemRules(items: FilterItem[]): string {
 function generateUniqueRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = uniqueOptions.find((opt) => opt.value === item.value && opt.label === item.label);
+            uniqueOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
