@@ -17,6 +17,15 @@ export default defineConfig({
           'icons': ['@ant-design/icons-vue']
         }
       }
+    },
+    assetsInlineLimit: 4096, // 小于4kb的资源将被内联为base64
+    sourcemap: false, // 不生成sourcemap
+    minify: 'terser', // 使用terser进行压缩
+    terserOptions: {
+      compress: {
+        drop_console: true, // 移除console
+        drop_debugger: true // 移除debugger
+      }
     }
   }
 })
