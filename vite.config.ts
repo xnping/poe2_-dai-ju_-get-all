@@ -6,21 +6,24 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [vue()],
   base: '/poe2_-dai-ju_-get-all/',  // 使用仓库名作为base
+  publicDir: 'public', // 明确指定public目录
   build: {
     outDir: 'docs', // 将构建输出目录改为 docs
     emptyOutDir: true, // 构建前清空输出目录
     chunkSizeWarningLimit: 1600, // 增加块大小警告限制
     rollupOptions: {
-      input: resolve(__dirname, 'index.html'),
+      input: {
+        main: resolve(__dirname, 'index.html'),
+      },
       output: {
         manualChunks: {
-          'ant-design-vue': ['ant-design-vue'],
-          'lodash': ['lodash-es'],
-          'icons': ['@ant-design/icons-vue']
-        },
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+          'vendor': [
+            'vue',
+            'ant-design-vue',
+            'lodash-es',
+            '@ant-design/icons-vue'
+          ]
+        }
       }
     },
     assetsInlineLimit: 4096, // 小于4kb的资源将被内联为base64
@@ -37,8 +40,5 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src')
     }
-  },
-  optimizeDeps: {
-    include: ['vue', 'ant-design-vue', 'lodash-es', '@ant-design/icons-vue']
   }
 })
