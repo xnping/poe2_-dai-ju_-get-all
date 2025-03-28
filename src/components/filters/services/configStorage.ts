@@ -172,8 +172,8 @@ export class LocalStorageConfigService implements ConfigStorageService {
                         currency: {
                             enabled: true,
                             items: [
-                                { value: 'chaos', soundEnabled: true, color: '#FF7F50' },
-                                { value: 'exalted', soundEnabled: true, color: '#FFD700' }
+                                { value: 'chaos', label: '混沌石', soundEnabled: true, color: '#FF7F50' },
+                                { value: 'exalted', label: '崇高石', soundEnabled: true, color: '#FFD700' }
                             ]
                         },
                         equipment: {
@@ -213,9 +213,9 @@ export class LocalStorageConfigService implements ConfigStorageService {
                         currency: {
                             enabled: true,
                             items: [
-                                { value: 'mirror', soundEnabled: true, color: '#FF0000' },
-                                { value: 'exalted', soundEnabled: true, color: '#FFD700' },
-                                { value: 'chaos', soundEnabled: true, color: '#FF7F50' }
+                                { value: 'mirror', label: '魔镜', soundEnabled: true, color: '#FF0000' },
+                                { value: 'exalted', label: '崇高石', soundEnabled: true, color: '#FFD700' },
+                                { value: 'chaos', label: '混沌石', soundEnabled: true, color: '#FF7F50' }
                             ]
                         },
                         equipment: {
