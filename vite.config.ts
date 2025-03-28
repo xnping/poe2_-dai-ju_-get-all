@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { resolve } from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,12 +11,18 @@ export default defineConfig({
     emptyOutDir: true, // 构建前清空输出目录
     chunkSizeWarningLimit: 1600, // 增加块大小警告限制
     rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+      },
       output: {
         manualChunks: {
           'ant-design-vue': ['ant-design-vue'],
           'lodash': ['lodash-es'],
           'icons': ['@ant-design/icons-vue']
-        }
+        },
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       }
     },
     assetsInlineLimit: 4096, // 小于4kb的资源将被内联为base64
@@ -26,6 +33,11 @@ export default defineConfig({
         drop_console: true, // 移除console
         drop_debugger: true // 移除debugger
       }
+    }
+  },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src')
     }
   }
 })
