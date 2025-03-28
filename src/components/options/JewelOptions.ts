@@ -1,5 +1,7 @@
 
-export const jewelOptions = [
+import type { FilterOption } from './filterOptions';
+
+export const jewelOptions: FilterOption[] = [
     { label: "深渊珠宝", value: "Abyss Jewel" },
     { label: "普通珠宝", value: "Normal Jewel" },
     { label: "星团珠宝", value: "Cluster Jewel" },

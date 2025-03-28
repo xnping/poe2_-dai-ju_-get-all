@@ -1,15 +1,21 @@
 
-export const equipmentOptions = [
-    { label: "六连装备", value: "Six-Link" },
-    { label: "传奇装备", value: "Unique" },
-    { label: "高物品等级", value: "High iLvl" },
-    { label: "高抗性", value: "High Resistance" },
-    { label: "高生命", value: "High Life" },
-    { label: "高伤害", value: "High Damage" },
-    { label: "高护甲", value: "High Armor" },
-    { label: "高闪避", value: "High Evasion" },
-    { label: "高能量护盾", value: "High ES" },
-    { label: "高属性", value: "High Attribute" },
-    { label: "高移动速度", value: "High Movement" },
-    { label: "高暴击", value: "High Crit" },
+import type { FilterOption } from './filterOptions';
+
+export const equipmentOptions: FilterOption[] = [
+    { label: "Lv1", value: "Waystone (Tier 1)" },
+    { label: "Lv2", value: "Waystone (Tier 2)" },
+    { label: "Lv3", value: "Waystone (Tier 3)" },
+    { label: "Lv4", value: "Waystone (Tier 4)" },
+    { label: "Lv5", value: "Waystone (Tier 5)" },
+    { label: "Lv6", value: "Waystone (Tier 6)" },
+    { label: "Lv7", value: "Waystone (Tier 7)" },
+    { label: "Lv8", value: "Waystone (Tier 8)" },
+    { label: "Lv9", value: "Waystone (Tier 9)" },
+    { label: "Lv10", value: "Waystone (Tier 10)" },
+    { label: "Lv11", value: "Waystone (Tier 11)" },
+    { label: "Lv12", value: "Waystone (Tier 12)" },
+    { label: "Lv13", value: "Waystone (Tier 13)" },
+    { label: "Lv14", value: "Waystone (Tier 14)" },
+    { label: "Lv15", value: "Waystone (Tier 15)" },
+    { label: "Lv16", value: "Waystone (Tier 16)" }
 ];

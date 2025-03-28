@@ -8,7 +8,7 @@
         </div>
         <div class="section-actions">
             <a-checkbox class="select-all" :indeterminate="indeterminate" :checked="checkAll"
-                @change="(e) => $emit('checkAllChange', e.target.checked)">
+                @change="(e: Event) => $emit('checkAllChange', (e.target as HTMLInputElement).checked)">
                 <span class="select-all-content">
                     <CheckOutlined class="select-all-icon" />
                     全选

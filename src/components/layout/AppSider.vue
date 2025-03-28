@@ -1,6 +1,6 @@
 <template>
     <a-layout-sider :collapsed="collapsed" :trigger="null" collapsible @update:collapsed="updateCollapsed">
-        <div class="logo">POE过滤器</div>
+        <div class="logo">呆橘过滤器</div>
         <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
             <a-menu-item key="1">
                 <PlusSquareTwoTone />
@@ -32,7 +32,7 @@ import {
 } from '@ant-design/icons-vue';
 import './styles/AppSider.css';
 
-const props = defineProps<{
+defineProps<{
     collapsed: boolean
 }>();
 

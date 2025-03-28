@@ -1,5 +1,7 @@
 
-export const flaskOptions = [
+import type { FilterOption } from './filterOptions';
+
+export const flaskOptions: FilterOption[] = [
     { label: "生命药剂", value: "Life Flask" },
     { label: "魔力药剂", value: "Mana Flask" },
     { label: "复合药剂", value: "Hybrid Flask" },

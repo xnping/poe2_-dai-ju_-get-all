@@ -1,12 +1,13 @@
-export const skillGemOptions = [
-    { label: '瓦尔技能石', value: 'Vaal' },
-    { label: '觉醒技能石', value: 'Awakened' },
-    { label: '异常技能石', value: 'Anomalous' },
-    { label: '魅影技能石', value: 'Phantasmal' },
-    { label: '发光技能石', value: 'Enlighten' },
-    { label: '赋予技能石', value: 'Empower' },
-    { label: '增幅技能石', value: 'Enhance' },
-    { label: '品质 >= 20%', value: 'Quality >= 20' },
-    { label: '等级 >= 20', value: 'Level >= 20' },
-    { label: '任意技能石', value: 'Any Gem' }
+
+import type { FilterOption } from './filterOptions';
+
+export const skillGemOptions: FilterOption[] = [
+    { label: "1-14技能石", value: "Uncut Skill Gem", tap: "<=14" },
+    { label: "15-20技能石", value: "Uncut Skill Gem", tap: ">=15" },
+    { label: "19-20技能石", value: "Uncut Skill Gem", tap: ">=19" },
+    { label: "1级辅助宝石", value: "Uncut Support Gem", tap: ">=1" },
+    { label: "2级辅助宝石", value: "Uncut Support Gem", tap: ">=2" },
+    { label: "3级辅助宝石", value: "Uncut Support Gem", tap: ">=3" },
+    { label: "1-18精魄石", value: "Uncut Spirit Gem", tap: "<=18" },
+    { label: "19-20精魄石", value: "Uncut Spirit Gem", tap: ">=19" },
 ];

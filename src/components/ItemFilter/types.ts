@@ -6,6 +6,7 @@ export interface FilterOption {
 
 export interface FilterItem {
     value: string;
+    label: string;  // 添加 label 字段
     soundEnabled: boolean;
     color?: string;
     bgColor?: string;

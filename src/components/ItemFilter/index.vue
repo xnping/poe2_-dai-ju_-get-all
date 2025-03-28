@@ -11,8 +11,10 @@
 
             <div class="filter-divider"></div>
 
-            <FilterSettings :checked-list="state.checkedList" :options="options" @update-sound="updateSound"
-                @update-color="updateColor" @update-bg-color="updateBgColor" />
+            <FilterSettings :checked-list="state.checkedList" :options="options"
+                @update-sound="(value, enabled, label) => updateSound(value, enabled, label)"
+                @update-color="(value, color, label) => updateColor(value, color, label)"
+                @update-bg-color="(value, color, label) => updateBgColor(value, color, label)" />
         </div>
     </div>
 </template>

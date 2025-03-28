@@ -1,3 +1,5 @@
+
+import type { FilterOption } from '../components/options/filterOptions';
 import { currencyOptions } from '../components/options/CurrencyOptions';
 import { equipmentOptions } from '../components/options/EquipmentOptions';
 import { jewelOptions } from '../components/options/JewelOptions';
@@ -8,6 +10,7 @@ import { generateBasicRule, type FilterRuleOptions } from './filterRules';
 
 interface FilterItem {
     value: string;
+    label: string;  // 添加 label 字段
     soundEnabled: boolean;
     color?: string;
     bgColor?: string;
@@ -20,9 +23,9 @@ function generateHeader(): string {
 function generateCurrencyRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = currencyOptions.find((opt) => opt.value === item.value);
+            const option = currencyOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
-                label: option?.label || item.value,
+                label: item.label,
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'currency',
@@ -37,9 +40,9 @@ function generateCurrencyRules(items: FilterItem[]): string {
 function generateEquipmentRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = equipmentOptions.find((opt) => opt.value === item.value);
+            const option = equipmentOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
-                label: option?.label || item.value,
+                label: item.label,
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'equipment',
@@ -54,9 +57,9 @@ function generateEquipmentRules(items: FilterItem[]): string {
 function generateJewelRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = jewelOptions.find((opt) => opt.value === item.value);
+            const option = jewelOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
-                label: option?.label || item.value,
+                label: item.label,
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'jewel',
@@ -71,9 +74,9 @@ function generateJewelRules(items: FilterItem[]): string {
 function generateFlaskRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = flaskOptions.find((opt) => opt.value === item.value);
+            const option = flaskOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
-                label: option?.label || item.value,
+                label: item.label,
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'flask',
@@ -88,14 +91,15 @@ function generateFlaskRules(items: FilterItem[]): string {
 function generateSkillGemRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = skillGemOptions.find((opt) => opt.value === item.value);
+            const option = skillGemOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
-                label: option?.label || item.value,
+                label: item.label,
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'skillgem',
                 color: item.color,
-                bgColor: item.bgColor
+                bgColor: item.bgColor,
+                tap: option?.tap
             };
             return generateBasicRule(ruleOptions);
         })
@@ -105,9 +109,9 @@ function generateSkillGemRules(items: FilterItem[]): string {
 function generateUniqueRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = uniqueOptions.find((opt) => opt.value === item.value);
+            const option = uniqueOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
-                label: option?.label || item.value,
+                label: item.label,
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'unique',
@@ -122,9 +126,9 @@ function generateUniqueRules(items: FilterItem[]): string {
 function generateNormalEquipmentRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = equipmentOptions.find((opt) => opt.value === item.value);
+            const option = equipmentOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
-                label: option?.label || item.value,
+                label: item.label,
                 value: item.value,
                 soundEnabled: item.soundEnabled,
                 type: 'normalequipment',

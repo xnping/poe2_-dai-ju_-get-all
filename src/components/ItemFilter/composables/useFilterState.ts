@@ -2,6 +2,11 @@
 import { reactive, computed, watch } from 'vue';
 import type { FilterOption, FilterItem } from '../types';
 
+// 创建唯一键的函数
+function createKey(value: string, label: string): string {
+    return `${value}|${label}`;
+}
+
 export function useFilterState(
     options: FilterOption[],
     modelValue: FilterItem[],
@@ -14,17 +19,17 @@ export function useFilterState(
         checkedList: [] as FilterItem[],
     });
 
-    // 颜色和声音状态映射
+    // 颜色和声音状态映射，使用 value|label 作为键
     const soundEnabledMap = reactive<Record<string, boolean>>(
-        Object.fromEntries(options.map(option => [option.value, true]))
+        Object.fromEntries(options.map(option => [createKey(option.value, option.label), true]))
     );
 
     const colorMap = reactive<Record<string, string>>(
-        Object.fromEntries(options.map(option => [option.value, '#ff0000']))
+        Object.fromEntries(options.map(option => [createKey(option.value, option.label), '#ff0000']))
     );
 
     const bgColorMap = reactive<Record<string, string>>(
-        Object.fromEntries(options.map(option => [option.value, '#ffffff']))
+        Object.fromEntries(options.map(option => [createKey(option.value, option.label), '#ffffff']))
     );
 
     // 计算属性
@@ -40,19 +45,21 @@ export function useFilterState(
     };
 
     // 更新函数
-    const updateColor = (value: string, color: string) => {
-        colorMap[value] = color;
-        const index = state.checkedList.findIndex((item) => item.value === value);
+    const updateColor = (value: string, color: string, label: string) => {
+        const key = createKey(value, label);
+        colorMap[key] = color;
+        const index = state.checkedList.findIndex((item) => item.value === value && item.label === label);
         if (index !== -1) {
             state.checkedList[index].color = color;
-            state.checkedList[index].bgColor = bgColorMap[value];
+            state.checkedList[index].bgColor = bgColorMap[key];
         }
         emit('update:modelValue', state.checkedList);
     };
 
-    const updateBgColor = (value: string, color: string) => {
-        bgColorMap[value] = color;
-        const index = state.checkedList.findIndex((item) => item.value === value);
+    const updateBgColor = (value: string, color: string, label: string) => {
+        const key = createKey(value, label);
+        bgColorMap[key] = color;
+        const index = state.checkedList.findIndex((item) => item.value === value && item.label === label);
         if (index !== -1) {
             const updatedItem = { ...state.checkedList[index], bgColor: color };
             state.checkedList.splice(index, 1, updatedItem);
@@ -60,27 +67,30 @@ export function useFilterState(
         emit('update:modelValue', [...state.checkedList]);
     };
 
-    const updateSound = (value: string, enabled: boolean) => {
-        soundEnabledMap[value] = enabled;
-        const index = state.checkedList.findIndex((item) => item.value === value);
+    const updateSound = (value: string, enabled: boolean, label: string) => {
+        const key = createKey(value, label);
+        soundEnabledMap[key] = enabled;
+        const index = state.checkedList.findIndex((item) => item.value === value && item.label === label);
         if (index !== -1) {
             state.checkedList[index].soundEnabled = enabled;
         }
         emit('update:modelValue', state.checkedList);
     };
 
-    const handleCheckboxChange = (checked: boolean, value: string) => {
+    const handleCheckboxChange = (checked: boolean, value: string, label: string) => {
+        const key = createKey(value, label);
         if (checked) {
-            if (!state.checkedList.some((item) => item.value === value)) {
+            if (!state.checkedList.some((item) => item.value === value && item.label === label)) {
                 state.checkedList.push({
                     value,
-                    soundEnabled: soundEnabledMap[value],
-                    color: colorMap[value],
-                    bgColor: bgColorMap[value],
+                    label,
+                    soundEnabled: soundEnabledMap[key],
+                    color: colorMap[key],
+                    bgColor: bgColorMap[key],
                 });
             }
         } else {
-            state.checkedList = state.checkedList.filter((item) => item.value !== value);
+            state.checkedList = state.checkedList.filter((item) => !(item.value === value && item.label === label));
         }
         updateCheckAllState();
         emit('update:modelValue', state.checkedList);
@@ -88,12 +98,16 @@ export function useFilterState(
 
     const onCheckAllChange = (checked: boolean) => {
         if (checked) {
-            state.checkedList = options.map((option) => ({
-                value: option.value,
-                soundEnabled: soundEnabledMap[option.value],
-                color: colorMap[option.value],
-                bgColor: bgColorMap[option.value],
-            }));
+            state.checkedList = options.map((option) => {
+                const key = createKey(option.value, option.label);
+                return {
+                    value: option.value,
+                    label: option.label,
+                    soundEnabled: soundEnabledMap[key],
+                    color: colorMap[key],
+                    bgColor: bgColorMap[key],
+                };
+            });
         } else {
             state.checkedList = [];
         }
@@ -103,8 +117,9 @@ export function useFilterState(
 
     const toggleAllSounds = (enabled: boolean) => {
         state.checkedList.forEach((item) => {
+            const key = createKey(item.value, item.label);
             item.soundEnabled = enabled;
-            soundEnabledMap[item.value] = enabled;
+            soundEnabledMap[key] = enabled;
         });
         emit('update:modelValue', state.checkedList);
     };
@@ -114,11 +129,12 @@ export function useFilterState(
         state.checkedList = newValue ? [...newValue] : [];
         if (newValue) {
             newValue.forEach(item => {
+                const key = createKey(item.value, item.label);
                 if (item.color) {
-                    colorMap[item.value] = item.color;
+                    colorMap[key] = item.color;
                 }
                 if (item.bgColor) {
-                    bgColorMap[item.value] = item.bgColor;
+                    bgColorMap[key] = item.bgColor;
                 }
             });
         }
