@@ -16,14 +16,17 @@ import type { FilterItem } from '../ItemFilter/types';
 const filterTypes = Object.keys(filterTitles) as FilterType[];
 
 // 存储所有过滤器的状态
-const filters = ref<Record<FilterType, FilterItem[]>>(
-    Object.fromEntries(
-        filterTypes.map(type => [
-            type,
-            []
-        ])
-    ) as Record<FilterType, FilterItem[]>
-);
+const initialFilters: Record<FilterType, FilterItem[]> = {
+    currency: [],
+    equipment: [],
+    jewel: [],
+    flask: [],
+    skillgem: [],
+    unique: [],
+    normalequipment: []
+};
+
+const filters = ref<Record<FilterType, FilterItem[]>>(initialFilters);
 
 // 更新过滤器状态的方法
 const updateFilter = (type: FilterType, value: FilterItem[]) => {

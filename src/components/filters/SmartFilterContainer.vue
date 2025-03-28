@@ -19,6 +19,11 @@ interface Props {
     modelValue: FilterItem[];
 }
 
+defineProps<Props>();
+defineEmits<{
+    (e: 'update:modelValue', value: FilterItem[]): void;
+}>();
+
 const filterOptions = {
     currency: currencyOptions,
     equipment: equipmentOptions,
@@ -27,10 +32,5 @@ const filterOptions = {
     skillgem: skillGemOptions,
     unique: uniqueOptions,
     normalequipment: equipmentOptions
-};
-
-defineProps<Props>();
-defineEmits<{
-    (e: 'update:modelValue', value: FilterItem[]): void;
-}>();
+} as const;
 </script>

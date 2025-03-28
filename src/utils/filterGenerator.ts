@@ -1,4 +1,3 @@
-
 import { currencyOptions } from '../components/options/CurrencyOptions';
 import { equipmentOptions } from '../components/options/EquipmentOptions';
 import { jewelOptions } from '../components/options/JewelOptions';
@@ -9,7 +8,7 @@ import { generateBasicRule, type FilterRuleOptions } from './filterRules';
 
 interface FilterItem {
     value: string;
-    label: string;  // 添加 label 字段
+    label: string;
     soundEnabled: boolean;
     color?: string;
     bgColor?: string;
