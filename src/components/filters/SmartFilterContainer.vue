@@ -5,7 +5,7 @@
 
 <script lang="ts" setup>
 import ItemFilter from '../ItemFilter/index.vue';
-import { filterOptions, filterTitles } from '../options/filterOptions.ts';
+import { FilterOptions, filterTitles } from '../options/filterOptions';
 import type { FilterType, FilterItem } from '../ItemFilter/types';
 
 interface Props {

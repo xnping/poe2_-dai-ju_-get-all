@@ -8,23 +8,25 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import SmartFilterContainer from './SmartFilterContainer.vue';
-import { filterOptions } from '../options/filterOptions';
+import { FilterOptions } from '../options/filterOptions';
+import type { FilterType } from '../ItemFilter/types';
+import type { FilterItem } from '../ItemFilter/types';
 
 // 获取所有过滤器类型
-const filterTypes = Object.keys(filterOptions) as Array<keyof typeof filterOptions>;
+const filterTypes = Object.keys(FilterOptions) as FilterType[];
 
 // 存储所有过滤器的状态
-const filters = ref<Record<string, Array<{ value: string; soundEnabled: boolean; color?: string }>>>(
+const filters = ref<Record<FilterType, FilterItem[]>>(
     Object.fromEntries(
         filterTypes.map(type => [
             type,
             []
         ])
-    )
+    ) as Record<FilterType, FilterItem[]>
 );
 
 // 更新过滤器状态的方法
-const updateFilter = (type: string, value: Array<{ value: string; soundEnabled: boolean; color?: string }>) => {
+const updateFilter = (type: FilterType, value: FilterItem[]) => {
     filters.value[type] = value;
 };
 </script>

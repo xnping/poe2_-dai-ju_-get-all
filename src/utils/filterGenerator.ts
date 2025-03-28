@@ -1,5 +1,4 @@
 
-import type { FilterOption } from '../components/options/filterOptions';
 import { currencyOptions } from '../components/options/CurrencyOptions';
 import { equipmentOptions } from '../components/options/EquipmentOptions';
 import { jewelOptions } from '../components/options/JewelOptions';
@@ -23,7 +22,7 @@ function generateHeader(): string {
 function generateCurrencyRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = currencyOptions.find((opt) => opt.value === item.value && opt.label === item.label);
+            currencyOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,

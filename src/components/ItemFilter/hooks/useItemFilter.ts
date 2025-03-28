@@ -1,5 +1,4 @@
 import { computed, reactive, watch } from "vue";
-import type { Ref } from "vue";
 
 export interface FilterOption {
     label: string;

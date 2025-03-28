@@ -132,7 +132,7 @@ import {
     ClockCircleOutlined
 } from '@ant-design/icons-vue';
 import { useConfigManager } from './composables/useConfigManager';
-import type { FilterTemplate, ConfigHistory } from './types/config';
+import type { ConfigHistory } from './types/config';
 import './styles/FilterConfigManager.css';
 
 // 状态管理
@@ -140,7 +140,6 @@ const {
     currentConfig,
     configHistory,
     templates,
-    isLoading,
     exportConfig,
     importConfig,
     applyTemplate,

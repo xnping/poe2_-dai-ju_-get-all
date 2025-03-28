@@ -68,14 +68,3 @@ export interface ConfigStorageService {
     saveHistory(history: ConfigHistory): Promise<void>;
     loadHistory(): Promise<ConfigHistory[]>;
 }
-
-// 导出所有类型
-export type {
-    FilterConfig,
-    FilterTemplate,
-    ConfigHistory,
-    ConfigManagerState,
-    ConfigMigration,
-    ConfigValidationResult,
-    ConfigStorageService
-};
