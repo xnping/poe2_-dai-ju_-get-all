@@ -1,0 +1,178 @@
+/* 网格容器 */
+.checkbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 16px;
+    background: #fafafa;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+/* 网格项 */
+.checkbox-item {
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    min-width: 0;
+    cursor: pointer;
+}
+
+.checkbox-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: #1890ff;
+}
+
+.checkbox-item:active {
+    transform: translateY(0);
+}
+
+/* 选中状态 */
+.checkbox-item.checked {
+    background: #e6f7ff;
+    border-color: #1890ff;
+}
+
+/* 复选框内容 */
+.checkbox-content {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+/* 选项图标 */
+.option-icon {
+    font-size: 14px;
+    color: #1890ff;
+    transition: transform 0.3s ease;
+}
+
+.checkbox-item:hover .option-icon {
+    transform: scale(1.1);
+}
+
+/* Ant Design 组件样式覆盖 */
+:deep(.ant-checkbox-wrapper) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    font-size: 13px;
+}
+
+:deep(.ant-checkbox-checked + span) {
+    color: #1890ff;
+    font-weight: 500;
+}
+
+:deep(.ant-checkbox-wrapper:hover .ant-checkbox-inner),
+:deep(.ant-checkbox:hover .ant-checkbox-inner) {
+    border-color: #1890ff;
+}
+
+:deep(.ant-checkbox-checked .ant-checkbox-inner) {
+    background-color: #1890ff;
+    border-color: #1890ff;
+}
+
+:deep(.ant-checkbox-checked::after) {
+    border-color: #1890ff;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .checkbox-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .checkbox-item {
+        padding: 6px 10px;
+    }
+
+    .option-icon {
+        font-size: 12px;
+    }
+
+    :deep(.ant-checkbox-wrapper) {
+        font-size: 12px;
+    }
+}
+
+/* 动画效果 */
+@keyframes checkboxPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(24, 144, 255, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 6px rgba(24, 144, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(24, 144, 255, 0);
+    }
+}
+
+.checkbox-item.checked {
+    animation: checkboxPulse 0.8s ease-out;
+}
+
+/* 加载状态 */
+.checkbox-item.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* 禁用状态 */
+.checkbox-item.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* 暗色主题支持 */
+@media (prefers-color-scheme: dark) {
+    .checkbox-grid {
+        background: #141414;
+    }
+
+    .checkbox-item {
+        background: #1f1f1f;
+        border-color: #303030;
+    }
+
+    .checkbox-item:hover {
+        border-color: #40a9ff;
+    }
+
+    .checkbox-item.checked {
+        background: #111d2c;
+    }
+
+    .option-icon {
+        color: #40a9ff;
+    }
+
+    :deep(.ant-checkbox-checked + span) {
+        color: #40a9ff;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (forced-colors: active) {
+    .checkbox-item {
+        border: 2px solid ButtonBorder;
+    }
+
+    .checkbox-item.checked {
+        border-color: Highlight;
+    }
+}

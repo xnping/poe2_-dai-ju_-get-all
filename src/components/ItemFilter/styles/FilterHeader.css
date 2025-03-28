@@ -1,0 +1,159 @@
+/* 头部容器 */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: #fafafa;
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.section-header:hover {
+    background: #f5f5f5;
+}
+
+/* 标题区域 */
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.title-text {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f1f1f;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.title-icon {
+    font-size: 20px;
+    color: #1890ff;
+    transition: transform 0.3s ease;
+}
+
+.title-text:hover .title-icon {
+    transform: scale(1.1);
+}
+
+/* 操作区域 */
+.section-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* 全选复选框 */
+.select-all {
+    margin: 0;
+}
+
+.select-all-content {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #1890ff;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+.select-all-icon {
+    font-size: 14px;
+}
+
+/* 音效切换按钮 */
+.sound-toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.3s ease;
+}
+
+.sound-toggle-btn:hover {
+    transform: scale(1.02);
+}
+
+/* Ant Design 组件样式覆盖 */
+:deep(.ant-checkbox-wrapper:hover) {
+    .select-all-content {
+        opacity: 0.8;
+    }
+}
+
+:deep(.ant-checkbox-checked + span .select-all-content) {
+    color: #1890ff;
+}
+
+:deep(.ant-checkbox-indeterminate + span .select-all-content) {
+    color: #1890ff;
+    opacity: 0.8;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .section-header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+
+    .section-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .title-text {
+        font-size: 14px;
+    }
+
+    .title-icon {
+        font-size: 18px;
+    }
+
+    .sound-toggle-btn {
+        font-size: 12px;
+    }
+}
+
+/* 动画效果 */
+@keyframes iconPulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.title-icon:hover {
+    animation: iconPulse 1s ease infinite;
+}
+
+/* 暗色主题支持 */
+@media (prefers-color-scheme: dark) {
+    .section-header {
+        background: #1f1f1f;
+        border-bottom-color: #303030;
+    }
+
+    .title-text {
+        color: #fff;
+    }
+
+    .select-all-content {
+        color: #40a9ff;
+    }
+
+    :deep(.ant-checkbox-checked + span .select-all-content) {
+        color: #40a9ff;
+    }
+}

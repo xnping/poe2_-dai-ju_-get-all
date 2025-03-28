@@ -1,0 +1,218 @@
+/* 设置网格容器 */
+.settings-grid {
+    margin-top: 20px;
+    display: grid;
+    gap: 16px;
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+/* 设置项 */
+.settings-item {
+    padding: 12px;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    background: #fafafa;
+    transition: all 0.3s ease;
+}
+
+.settings-item:hover {
+    border-color: #1890ff;
+    box-shadow: 0 2px 8px rgba(24, 144, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 选项标签 */
+.option-label {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 设置内容区域 */
+.settings-content {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* 音效控制 */
+.sound-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 120px;
+    padding: 4px 8px;
+    background: #fff;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.sound-control:hover {
+    background: #f5f5f5;
+}
+
+.sound-status {
+    font-size: 12px;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+/* 颜色选择器区域 */
+.color-pickers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.color-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: #fff;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.color-picker:hover {
+    background: #f5f5f5;
+}
+
+.color-label {
+    font-size: 12px;
+    color: #666;
+    min-width: 80px;
+}
+
+/* 颜色输入框样式优化 */
+.color-input {
+    width: 60px;
+    height: 24px;
+    padding: 0;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.color-input:hover {
+    border-color: #1890ff;
+}
+
+.color-input:focus {
+    outline: none;
+    border-color: #1890ff;
+    box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+}
+
+/* 开关样式优化 */
+:deep(.ant-switch) {
+    min-width: 40px;
+    height: 20px;
+}
+
+:deep(.ant-switch-small) {
+    min-width: 28px;
+    height: 16px;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 768px) {
+    .settings-grid {
+        padding: 12px;
+    }
+
+    .settings-item {
+        padding: 8px;
+    }
+
+    .settings-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .color-pickers {
+        width: 100%;
+    }
+
+    .color-picker {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+/* 动画效果 */
+@keyframes settingsPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(24, 144, 255, 0.2);
+    }
+
+    70% {
+        box-shadow: 0 0 0 4px rgba(24, 144, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(24, 144, 255, 0);
+    }
+}
+
+.settings-item.active {
+    animation: settingsPulse 1s ease-out;
+}
+
+/* 暗色主题支持 */
+@media (prefers-color-scheme: dark) {
+    .settings-grid {
+        background: #1f1f1f;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .settings-item {
+        background: #141414;
+        border-color: #303030;
+    }
+
+    .settings-item:hover {
+        border-color: #40a9ff;
+        box-shadow: 0 2px 8px rgba(64, 169, 255, 0.1);
+    }
+
+    .option-label {
+        color: #fff;
+    }
+
+    .sound-control,
+    .color-picker {
+        background: #1f1f1f;
+    }
+
+    .sound-control:hover,
+    .color-picker:hover {
+        background: #2d2d2d;
+    }
+
+    .sound-status,
+    .color-label {
+        color: #999;
+    }
+}
+
+/* 高对比度模式支持 */
+@media (forced-colors: active) {
+    .settings-item {
+        border: 2px solid ButtonBorder;
+    }
+
+    .settings-item:hover {
+        border-color: Highlight;
+    }
+}

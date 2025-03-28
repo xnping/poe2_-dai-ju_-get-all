@@ -1,0 +1,104 @@
+/* 主容器样式 */
+.filter-config-manager {
+    padding: 16px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* 操作按钮区域 */
+.config-actions {
+    margin-bottom: 16px;
+}
+
+/* 导入预览区域 */
+.preview-content {
+    margin-top: 16px;
+}
+
+/* 模板列表样式 */
+.template-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.template-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.template-description {
+    color: #666;
+}
+
+/* 历史记录样式 */
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.history-time {
+    color: #666;
+}
+
+.history-description {
+    color: #333;
+}
+
+/* Timeline样式覆盖 */
+:deep(.ant-timeline-item-content) {
+    min-height: 32px;
+}
+
+/* 上传区域样式优化 */
+.ant-upload-drag {
+    border-radius: 4px;
+}
+
+.ant-upload-drag:hover {
+    border-color: #1890ff;
+}
+
+/* 模态框内容样式优化 */
+.ant-modal-body {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* 表单样式优化 */
+.ant-form-item-label {
+    font-weight: 500;
+}
+
+/* 按钮组样式优化 */
+.ant-btn-group {
+    margin-right: 8px;
+}
+
+.ant-btn-group:last-child {
+    margin-right: 0;
+}
+
+/* 标签样式优化 */
+.ant-tag {
+    margin: 0 4px;
+    padding: 0 8px;
+    border-radius: 4px;
+}
+
+/* 时间线样式优化 */
+.ant-timeline {
+    padding: 8px 0;
+}
+
+.ant-timeline-item {
+    padding-bottom: 16px;
+}

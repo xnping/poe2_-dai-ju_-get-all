@@ -1,0 +1,39 @@
+/* 主容器样式 */
+.filter-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    margin-bottom: 24px;
+    padding: 16px;
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 768px) {
+    .filter-section {
+        margin-bottom: 16px;
+        padding: 12px;
+    }
+}
+
+/* 悬停效果 */
+.filter-section:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* 动画效果 */
+.filter-section {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* 内容区域样式 */
+.filter-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* 分隔线样式 */
+.filter-divider {
+    margin: 16px 0;
+    border-top: 1px solid #f0f0f0;
+}

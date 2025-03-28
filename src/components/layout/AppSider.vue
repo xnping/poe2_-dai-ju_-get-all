@@ -30,6 +30,7 @@ import {
     ApiTwoTone,
     CrownTwoTone,
 } from '@ant-design/icons-vue';
+import './styles/AppSider.css';
 
 const props = defineProps<{
     collapsed: boolean
@@ -54,16 +55,3 @@ const updateCollapsed = (value: boolean) => {
     emit('update:collapsed', value);
 };
 </script>
-
-<style scoped>
-.logo {
-    height: 32px;
-    margin: 16px;
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    line-height: 32px;
-    white-space: nowrap;
-    overflow: hidden;
-}
-</style>

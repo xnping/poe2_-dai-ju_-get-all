@@ -1,0 +1,27 @@
+.logo {
+    height: 32px;
+    margin: 16px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    line-height: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* 添加一些额外的样式优化 */
+.ant-layout-sider {
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.ant-menu-item {
+    margin: 4px 0;
+}
+
+.ant-menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.ant-menu-item-selected {
+    background-color: #1890ff !important;
+}
