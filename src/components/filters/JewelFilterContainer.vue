@@ -1,14 +1,16 @@
 <template>
-    <ItemFilter type="jewel" title="珠宝" :options="jewelOptions" :modelValue="modelValue"
+    <BaseFilterContainer type="jewel" :title="filterTitles.jewel" :options="jewelOptions" :modelValue="modelValue"
         @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 
 <script lang="ts" setup>
+import BaseFilterContainer from './BaseFilterContainer.vue';
 import { jewelOptions } from '../options/JewelOptions';
-import ItemFilter from '../ItemFilter.vue';
+import { filterTitles } from '../options/filterOptions';
+import type { FilterItem } from '../ItemFilter/types';
 
 interface Props {
-    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string }>;
+    modelValue: FilterItem[];
 }
 
 defineProps<Props>();

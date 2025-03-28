@@ -1,14 +1,15 @@
 <template>
-    <ItemFilter type="currency" title="通货" :options="currencyOptions" :modelValue="modelValue"
-        @update:modelValue="$emit('update:modelValue', $event)" />
+    <BaseFilterContainer type="currency" :title="filterTitles.currency" :options="filterOptions.currency"
+        :modelValue="modelValue" @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 
 <script lang="ts" setup>
-import { currencyOptions } from '../options/CurrencyOptions';
-import ItemFilter from '../ItemFilter.vue';
+import BaseFilterContainer from './BaseFilterContainer.vue';
+import { filterOptions, filterTitles } from '../options/filterOptions';
+import type { FilterItem } from '../ItemFilter/types';
 
 interface Props {
-    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string }>;
+    modelValue: FilterItem[];
 }
 
 defineProps<Props>();

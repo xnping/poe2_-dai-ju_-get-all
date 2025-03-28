@@ -1,14 +1,16 @@
 <template>
-    <ItemFilter type="skillgem" title="技能石" :options="skillGemOptions" :modelValue="modelValue"
-        @update:modelValue="$emit('update:modelValue', $event)" />
+    <BaseFilterContainer type="skillgem" :title="filterTitles.skillgem" :options="skillGemOptions"
+        :modelValue="modelValue" @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 
 <script lang="ts" setup>
+import BaseFilterContainer from './BaseFilterContainer.vue';
 import { skillGemOptions } from '../options/SkillGemOptions';
-import ItemFilter from '../ItemFilter.vue';
+import { filterTitles } from '../options/filterOptions';
+import type { FilterItem } from '../ItemFilter/types';
 
 interface Props {
-    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string }>;
+    modelValue: FilterItem[];
 }
 
 defineProps<Props>();

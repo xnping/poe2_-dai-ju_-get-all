@@ -1,14 +1,16 @@
 <template>
-    <ItemFilter type="flask" title="药剂" :options="flaskOptions" :modelValue="modelValue"
+    <BaseFilterContainer type="flask" :title="filterTitles.flask" :options="flaskOptions" :modelValue="modelValue"
         @update:modelValue="$emit('update:modelValue', $event)" />
 </template>
 
 <script lang="ts" setup>
+import BaseFilterContainer from './BaseFilterContainer.vue';
 import { flaskOptions } from '../options/FlaskOptions';
-import ItemFilter from '../ItemFilter.vue';
+import { filterTitles } from '../options/filterOptions';
+import type { FilterItem } from '../ItemFilter/types';
 
 interface Props {
-    modelValue: Array<{ value: string; soundEnabled: boolean; color?: string }>;
+    modelValue: FilterItem[];
 }
 
 defineProps<Props>();
