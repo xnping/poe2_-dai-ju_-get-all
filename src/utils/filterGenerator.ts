@@ -39,7 +39,7 @@ function generateCurrencyRules(items: FilterItem[]): string {
 function generateEquipmentRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = equipmentOptions.find((opt) => opt.value === item.value && opt.label === item.label);
+            equipmentOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -56,7 +56,7 @@ function generateEquipmentRules(items: FilterItem[]): string {
 function generateJewelRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = jewelOptions.find((opt) => opt.value === item.value && opt.label === item.label);
+            jewelOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -125,7 +125,7 @@ function generateUniqueRules(items: FilterItem[]): string {
 function generateNormalEquipmentRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = equipmentOptions.find((opt) => opt.value === item.value && opt.label === item.label);
+            equipmentOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,

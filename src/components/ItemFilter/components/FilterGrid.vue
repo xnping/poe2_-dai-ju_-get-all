@@ -3,10 +3,10 @@
         <div v-for="option in options" :key="`${option.value}-${option.label}`" class="checkbox-item" :class="{
             'checked': isChecked(option.value, option.label),
             'loading': isLoading(option.value, option.label),
-            'disabled': isDisabled(option.value)
+            'disabled': isDisabled()
         }">
-            <a-checkbox :value="option.value" :checked="isChecked(option.value, option.label)"
-                :disabled="isDisabled(option.value)" @change="handleChange($event, option)">
+            <a-checkbox :value="option.value" :checked="isChecked(option.value, option.label)" :disabled="isDisabled()"
+                @change="handleChange($event, option)">
                 <span class="checkbox-content">
                     <component :is="getOptionIcon(option.value)" class="option-icon" />
                     {{ option.label }}

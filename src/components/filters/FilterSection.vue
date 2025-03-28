@@ -8,12 +8,12 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import SmartFilterContainer from './SmartFilterContainer.vue';
-import { FilterOptions } from '../options/filterOptions';
+import { filterTitles } from '../options/filterOptions';
 import type { FilterType } from '../ItemFilter/types';
 import type { FilterItem } from '../ItemFilter/types';
 
 // 获取所有过滤器类型
-const filterTypes = Object.keys(FilterOptions) as FilterType[];
+const filterTypes = Object.keys(filterTitles) as FilterType[];
 
 // 存储所有过滤器的状态
 const filters = ref<Record<FilterType, FilterItem[]>>(
