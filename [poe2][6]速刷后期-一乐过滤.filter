@@ -1,0 +1,1738 @@
+Show # 通货 - 赛季通货* - 惊悸迷雾 - 拟像裂片
+    Class "Stackable Currency" 
+    BaseType "Simulacrum Splinter" 
+    SetTextColor 74 230 58 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 74 230 58 
+    SetFontSize 45
+    MinimapIcon 0 Green Square 
+#      PlayAlertSound 11 300 
+    CustomAlertSound "音效\拟像碎片.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 惊悸迷雾 - 需要高亮的精炼
+    Class "Stackable Currency" 
+    BaseType "Distilled Despair" "Distilled Disgust" "Distilled Envy" "Distilled Fear" "Distilled Greed" "Distilled Guilt" "Distilled Ire" "Distilled Isolation" "Distilled Paranoia" "Distilled Suffering" 
+    SetTextColor 242 76 105 
+    SetBackgroundColor 0 0 0 255 
+    SetBorderColor 242 76 105 
+    SetFontSize 42
+    MinimapIcon 2 Green Square 
+#      PlayAlertSound 11 300 
+    CustomAlertSound "音效\精炼.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 赛季通货* - 惊悸迷雾 - 全部精炼
+    Class "Stackable Currency" 
+    BaseType "Distilled Despair" "Distilled Disgust" "Distilled Envy" "Distilled Fear" "Distilled Greed" "Distilled Guilt" "Distilled Ire" "Distilled Isolation" "Distilled Paranoia" "Distilled Suffering" 
+    SetFontSize 36
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 裂隙 - 裂隙碎片多堆叠
+    StackSize >= 2
+    Class "Stackable Currency" 
+    BaseType "Breach Splinter" 
+    SetTextColor 74 230 58 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 74 230 58 
+    SetFontSize 45
+    MinimapIcon 2 Orange Square 
+    PlayEffect Orange
+#      PlayAlertSound 11 300 
+    CustomAlertSound "音效\裂隙碎片.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 裂隙 - 裂隙碎片
+    Class "Stackable Currency" 
+    BaseType "Breach Splinter" 
+    SetTextColor 74 230 58 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 74 230 58 
+    SetFontSize 45
+    MinimapIcon 2 Orange Square 
+    PlayEffect Orange
+#      PlayAlertSound 11 300 
+    CustomAlertSound "音效\裂隙碎片.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 赛季通货* - 裂隙 - 需要高亮的催化剂
+    Class "Stackable Currency" 
+    BaseType "Neural Catalyst" "Esh's Catalyst" "Adaptive Catalyst" "Chayula's Catalyst" "Reaver Catalyst" "Tul's Catalyst" 
+    SetTextColor 242 76 105 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 242 76 105 
+    SetFontSize 43
+#      MinimapIcon 2 Yellow Triangle 
+#      PlayAlertSound 16 300 
+#      CustomAlertSound "音效\催化剂.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 赛季通货* - 裂隙 - 全部催化剂
+    Class "Stackable Currency" 
+    BaseType "Carapace Catalyst" "Chayula's Catalyst" "Adaptive Catalyst" "Esh's Catalyst" "Flesh Catalyst" "Neural Catalyst" "Reaver Catalyst" "Sibilant Catalyst" "Skittering Catalyst" "Tul's Catalyst" "Uul-Netol's Catalyst" "Xoph's Catalyst" 
+    SetFontSize 36
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 先祖密藏 - 异域铸币
+    Class "Stackable Currency" 
+    BaseType "Exotic Coinage" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 150 219 237 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Pink Triangle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\异域铸币.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 先祖密藏 - 文物
+    Class "Stackable Currency" 
+    BaseType "Black Scythe Artifact" "Broken Circle Artifact" "Order Artifact" "Sun Artifact" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 150 219 237 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Pink Triangle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\文物.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 精华 - 需要高亮的高阶精华
+    Class "Stackable Currency" 
+    BaseType "Greater Essence of the Body" "Greater Essence of the Mind" "Greater Essence of Enhancement" "Greater Essence of Torment" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of Electricity" "Greater Essence of Ruin" "Greater Essence of Battle" "Greater Essence of Sorcery" "Greater Essence of Haste" "Greater Essence of the Infinite" 
+    SetTextColor 74 230 58 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 74 230 58 
+    SetFontSize 43
+    MinimapIcon 1 Cyan Triangle 
+    PlayEffect Cyan
+#      PlayAlertSound 3 300 
+    CustomAlertSound "音效\高级精华.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 赛季通货* - 精华 - 全部高阶精华
+    Class "Stackable Currency" 
+    BaseType "Greater Essence of the Body" "Greater Essence of the Mind" "Greater Essence of Enhancement" "Greater Essence of Torment" "Greater Essence of Flames" "Greater Essence of Ice" "Greater Essence of Electricity" "Greater Essence of Ruin" "Greater Essence of Battle" "Greater Essence of Sorcery" "Greater Essence of Haste" "Greater Essence of the Infinite" 
+    SetFontSize 36
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 精华 - 需要高亮的低阶精华
+    Class "Stackable Currency" 
+    BaseType "Essence of the Body" "Essence of the Mind" "Essence of Enhancement" "Essence of Torment" "Essence of Flames" "Essence of Ice" "Essence of Electricity" "Essence of Ruin" "Essence of Battle" "Essence of Sorcery" "Essence of Haste" "Essence of the Infinite" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    MinimapIcon 2 Cyan Triangle 
+    PlayEffect Cyan
+#      PlayAlertSound 16 300 
+    CustomAlertSound "音效\精华.mp3" 300
+
+
+Hide # 通货 - 赛季通货* - 精华 - 全部低阶精华
+    Class "Stackable Currency" 
+    BaseType "Essence of the Body" "Essence of the Mind" "Essence of Enhancement" "Essence of Torment" "Essence of Flames" "Essence of Ice" "Essence of Electricity" "Essence of Ruin" "Essence of Battle" "Essence of Sorcery" "Essence of Haste" "Essence of the Infinite" 
+    SetFontSize 36
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 命运试炼 - 需要高亮的预兆
+    Class "Omen" 
+    BaseType "Omen of Amelioration" "Omen of Corruption" "Omen of Dextral Alchemy" "Omen of Dextral Annulment" "Omen of Dextral Coronation" "Omen of Dextral Erasure" "Omen of Dextral Exaltation" "Omen of Greater Annulment" "Omen of Greater Exaltation" "Omen of Refreshment" "Omen of Resurgence" "Omen of Sinistral Alchemy" "Omen of Sinistral Annulment" "Omen of Sinistral Coronation" "Omen of Sinistral Erasure" "Omen of Sinistral Exaltation" "Omen of Whittling" 
+    SetTextColor 130 27 229 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 130 27 229 
+    SetFontSize 40
+#      PlayAlertSound 9 300 
+    CustomAlertSound "音效\预兆.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 赛季通货* - 命运试炼 - 全部预兆
+    Class "Omen" 
+    BaseType "Omen of Amelioration" "Omen of Corruption" "Omen of Dextral Alchemy" "Omen of Dextral Annulment" "Omen of Dextral Coronation" "Omen of Dextral Erasure" "Omen of Dextral Exaltation" "Omen of Greater Annulment" "Omen of Greater Exaltation" "Omen of Refreshment" "Omen of Resurgence" "Omen of Sinistral Alchemy" "Omen of Sinistral Annulment" "Omen of Sinistral Coronation" "Omen of Sinistral Erasure" "Omen of Sinistral Exaltation" "Omen of Whittling" 
+    SetFontSize 36
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 致命贪婪 - 需要高亮的符文
+    Class "Socketable" 
+    BaseType "Iron Rune" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 150 219 237 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 40
+#      PlayAlertSound 9 300 
+    CustomAlertSound "音效\符文.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 赛季通货* - 致命贪婪 - 全部符文
+    Class "Socketable" 
+    BaseType "Body Rune" "Desert Rune" "Glacial Rune" "Inspiration Rune" "Iron Rune" "Mind Rune" "Rebirth Rune" "Stone Rune" "Storm Rune" "Vision Rune" 
+    SetFontSize 36
+    DisableDropSound 
+
+Show # 通货 - 赛季通货* - 致命贪婪 - 需要高亮的核心
+    Class "Socketable" 
+    BaseType "Soul Core of Atmohua" "Soul Core of Cholotl" "Soul Core of Zantipi" "Soul Core of Azcapa" "Soul Core of Citaqualotl" "Soul Core of Jiquani" "Soul Core of Opiloti" "Soul Core of Puhuarte" "Soul Core of Quipolatl" "Soul Core of Tacati" "Soul Core of Tacati" "Soul Core of Topotante" "Soul Core of Tzamoto" "Soul Core of Xopec" "Soul Core of Zalatl" "Soul Core of Ticaba"
+    SetTextColor 0 0 0 
+    SetBackgroundColor 150 219 237 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 40
+#      PlayAlertSound 9 300 
+    CustomAlertSound "音效\核心.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 赛季通货* - 致命贪婪 - 全部核心
+    Class "Socketable" 
+    BaseType "Soul Core of Atmohua" "Soul Core of Cholotl" "Soul Core of Zantipi" "Soul Core of Azcapa" "Soul Core of Citaqualotl" "Soul Core of Jiquani" "Soul Core of Opiloti" "Soul Core of Puhuarte" "Soul Core of Quipolatl" "Soul Core of Tacati" "Soul Core of Tacati" "Soul Core of Topotante" "Soul Core of Tzamoto" "Soul Core of Xopec" "Soul Core of Zalatl" "Soul Core of Ticaba"
+    SetFontSize 36
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 卡兰德的魔镜
+    Class "Stackable Currency" 
+    BaseType "Mirror of Kalandra" 
+    SetTextColor 255 255 255 
+    SetBackgroundColor 255 40 0 230 
+    SetBorderColor 255 40 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Red Star 
+    PlayEffect Red
+#      PlayAlertSound 5 300 
+    CustomAlertSound "音效\卡兰德的魔镜.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 崇高石
+    Class "Stackable Currency" 
+    BaseType "Exalted Orb" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Red Circle 
+    PlayEffect Red
+#      PlayAlertSound 3 300 
+    CustomAlertSound "音效\崇高石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 神圣石
+    Class "Stackable Currency" 
+    BaseType "Divine Orb" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Red Circle 
+    PlayEffect Red
+#      PlayAlertSound 3 300 
+    CustomAlertSound "音效\神圣石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 机会石
+    Class "Stackable Currency" 
+    BaseType "Orb of Chance" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Red Circle 
+    PlayEffect Red
+#      PlayAlertSound 3 300 
+    CustomAlertSound "音效\机会石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 混沌石
+    Class "Stackable Currency" 
+    BaseType "Chaos Orb" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 249 150 25 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Red Circle 
+    PlayEffect Red
+#      PlayAlertSound 3 300 
+    CustomAlertSound "音效\混沌石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 完美工匠石
+    Class "Stackable Currency" 
+    BaseType "Perfect Jeweller's Orb" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Red Circle 
+    PlayEffect Red
+#      PlayAlertSound 3 300 
+    CustomAlertSound "音效\完美工匠石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 高阶工匠石
+    Class "Stackable Currency" 
+    BaseType "Greater Jeweller's Orb" 
+    SetTextColor 153 63 131 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 153 63 131 
+    SetFontSize 45
+    MinimapIcon 1 Cyan Circle 
+    PlayEffect Cyan
+#      PlayAlertSound 3 300 
+    CustomAlertSound "音效\高阶工匠石.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 常规通货 - 工匠石
+    Class "Stackable Currency" 
+    BaseType "Lesser Jeweller's Orb" 
+    SetTextColor 153 63 131 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 153 63 131 
+    SetFontSize 45
+#    MinimapIcon 1 Cyan Circle 
+#    PlayEffect Cyan
+#      PlayAlertSound 3 300 
+#    CustomAlertSound "音效\工匠石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 剥离石
+    Class "Stackable Currency" 
+    BaseType "Orb of Annulment" 
+    SetTextColor 153 63 131 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 153 63 131 
+    SetFontSize 45
+    MinimapIcon 1 Cyan Circle 
+    PlayEffect Cyan
+#      PlayAlertSound 3 300 
+    CustomAlertSound "音效\剥离石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 富豪石
+    Class "Stackable Currency" 
+    BaseType "Regal Orb" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 249 150 25 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Yellow Circle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\富豪石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 宝石匠的棱镜
+    Class "Stackable Currency" 
+    BaseType "Gemcutter's Prism" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 249 150 25 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Yellow Circle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\棱镜.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 瓦尔宝珠
+    Class "Stackable Currency" 
+    BaseType "Vaal Orb" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 249 150 25 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Yellow Circle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\瓦尔宝珠.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 重铸石
+    Class "Stackable Currency" 
+    BaseType "Orb of Scouring" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 249 150 25 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Yellow Circle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\重铸石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 点金石
+    Class "Stackable Currency" 
+    BaseType "Orb of Alchemy" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 249 150 25 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Yellow Circle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\点金石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 符文石
+    Class "Stackable Currency" 
+    BaseType "Artificer's Orb" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 249 150 25 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Yellow Circle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\符文石.mp3" 300
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 玻璃弹珠
+    Class "Stackable Currency" 
+    BaseType "Glassblower's Bauble" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 42
+    MinimapIcon 2 White Circle 
+    CustomAlertSound "音效\玻璃弹珠.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 常规通货 - 增幅石
+    Class "Stackable Currency" 
+    BaseType "Orb of Augmentation" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 常规通货 - 蜕变石
+    Class "Stackable Currency" 
+    BaseType "Orb of Transmutation" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 奥术蚀刻师
+    Class "Stackable Currency" 
+    BaseType "Arcanist's Etcher" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 磨刀石
+    Class "Stackable Currency" 
+    BaseType "Blacksmith's Whetstone" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 护甲石
+    Class "Stackable Currency" 
+    BaseType "Armourer's Scrap" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 常规通货 - 知识卷轴
+    Class "Stackable Currency" 
+    BaseType "Scroll of Wisdom" 
+    SetTextColor 170 158 130 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 242 222 179 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 常规通货 - 青铜白银黄金钥匙
+    Class "Stackable Currency" 
+    BaseType "Bronze Key" "Silver Key" "Gold Key" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\迷宫钥匙.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 常规通货 - 金币高堆叠
+    StackSize >= 300
+    Class "Stackable Currency" 
+    BaseType "Gold" 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 常规通货 - 金币
+    Class "Stackable Currency" 
+    BaseType "Gold" 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 通货 - 基础通货* - 通货碎片 - 机会石碎片
+    Class "Stackable Currency" 
+    BaseType "Chance Shard" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 249 150 25 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Yellow Circle 
+#      PlayAlertSound 12 300 
+    CustomAlertSound "音效\通货碎片.mp3" 300
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 通货碎片 - 符文石碎片
+    Class "Stackable Currency" 
+    BaseType "Artificer's Shard" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 通货碎片 - 点金石碎片
+    Class "Stackable Currency" 
+    BaseType "Alchemy Shard" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 通货碎片 - 富豪石碎片
+    Class "Stackable Currency" 
+    BaseType "Regal Shard" 
+    SetTextColor 255 0 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 0 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 通货 - 基础通货* - 通货碎片 - 蜕变石碎片
+    Class "Stackable Currency" 
+    BaseType "Transmutation Shard" 
+    SetTextColor 190 178 135 
+    SetBackgroundColor 0 0 0 255 
+    SetBorderColor 190 178 135 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 地图 - 先祖密藏日志 - >=83物等
+    ItemLevel >= 83
+    Class "Expedition Logbooks" 
+    BaseType "Expedition Logbook" 
+    SetTextColor 255 0 128 
+    SetBackgroundColor 255 255 255 255 
+    SetBorderColor 255 0 128 
+    SetFontSize 45
+    MinimapIcon 0 Pink Diamond 
+    PlayEffect Pink
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\探险日志.mp3" 300
+    DisableDropSound 
+
+Show # 地图 - 先祖密藏日志 - >=80物等
+    ItemLevel >= 80
+    Class "Expedition Logbooks" 
+    BaseType "Expedition Logbook" 
+    SetTextColor 255 0 128 
+    SetBackgroundColor 255 255 255 255 
+    SetBorderColor 255 0 128 
+    SetFontSize 45
+    MinimapIcon 0 Pink Diamond 
+    PlayEffect Pink
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\探险日志.mp3" 300
+    DisableDropSound 
+
+Show # 地图 - 先祖密藏日志 - 剩余全部物等
+    Class "Expedition Logbooks" 
+    BaseType "Expedition Logbook" 
+    SetTextColor 255 0 128 
+    SetBackgroundColor 255 255 255 255 
+    SetBorderColor 255 0 128 
+    SetFontSize 45
+    MinimapIcon 0 Pink Diamond 
+    PlayEffect Pink
+#      PlayAlertSound 11 300 
+    CustomAlertSound "音效\探险日志.mp3" 300
+    DisableDropSound 
+
+Show # 地图 - 碎片集合 - 谒王之约
+    BaseType "An Audience With The King" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Green Diamond 
+    PlayEffect Green
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\谒王之约.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 碎片集合 - 贪婪战书
+    BaseType "Inscribed Ultimatum" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+#      MinimapIcon 0 Green Diamond 
+#      PlayEffect Green
+#      PlayAlertSound 4 300 
+#      CustomAlertSound "音效\贪婪战书.mp3" 300
+    DisableDropSound 
+
+Show # 地图 - 碎片集合 - 梦魇拟像
+    Class "Map Fragments" 
+    BaseType "Simulacrum" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Green Diamond 
+    PlayEffect Green
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\梦魇拟像.mp3" 300
+    DisableDropSound 
+
+Show # 地图 - 碎片集合 - 裂隙石
+    Class "Breachstones" 
+    BaseType "Breachstone" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Green Diamond 
+    PlayEffect Green
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\裂隙石.mp3" 300
+    DisableDropSound 
+
+Show # 地图 - 附魔地图 - 全部
+    AnyEnchantment True
+    Rarity Normal Magic Rare
+    Class "Waystones" 
+    BaseType "Waystone (Tier 14)" "Waystone (Tier 15)" "Waystone (Tier 16)" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Pink Hexagon 
+    PlayEffect Pink
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\附魔地图.mp3" 300
+    DisableDropSound 
+
+Show # 地图 - 常规异界地图 - T16
+    Class "Waystones" 
+    BaseType "Waystone (Tier 16)" 
+    SetTextColor 255 0 128 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 128 
+    SetFontSize 45
+    MinimapIcon 0 Pink Hexagon 
+    PlayEffect Pink
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\高级地图.mp3" 300
+    DisableDropSound 
+
+Show # 地图 - 常规异界地图 - T15
+    Class "Waystones" 
+    BaseType "Waystone (Tier 15)" 
+    SetTextColor 255 0 128 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 128 
+    SetFontSize 45
+    MinimapIcon 0 Red Hexagon 
+    PlayEffect Red
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\高级地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T14 - 稀有
+    Rarity Rare
+    Class "Waystones" 
+    BaseType "Waystone (Tier 14)" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 237 222 16 
+    SetFontSize 45
+#    MinimapIcon 0 Red Hexagon 
+#    PlayEffect Red
+#      PlayAlertSound 4 300 
+#    CustomAlertSound "音效\高级地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T14 - 魔法
+    Rarity Magic
+    Class "Waystones" 
+    BaseType "Waystone (Tier 14)" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 16 134 237 
+    SetFontSize 45
+#    MinimapIcon 0 Red Hexagon 
+#    PlayEffect Red
+#      PlayAlertSound 4 300 
+#    CustomAlertSound "音效\高级地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T14 - 普通
+    Rarity Normal
+    Class "Waystones" 
+    BaseType "Waystone (Tier 14)" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 255 255 
+    SetFontSize 45
+#    MinimapIcon 0 Red Hexagon 
+#    PlayEffect Red
+#      PlayAlertSound 4 300 
+#    CustomAlertSound "音效\高级地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T11-T13 - 稀有
+    Rarity Rare
+    Class "Waystones" 
+    BaseType "Waystone (Tier 11)" "Waystone (Tier 12)" "Waystone (Tier 13)" 
+    SetTextColor 255 128 192 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 237 222 16 
+    SetFontSize 43
+#      MinimapIcon 1 Orange Hexagon 
+#      PlayEffect Orange
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T11-T13 - 魔法
+    Rarity Magic
+    Class "Waystones" 
+    BaseType "Waystone (Tier 11)" "Waystone (Tier 12)" "Waystone (Tier 13)" 
+    SetTextColor 255 128 192 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 16 134 237 
+    SetFontSize 43
+#      MinimapIcon 1 Orange Hexagon 
+#      PlayEffect Orange
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T11-T13 - 普通
+    Rarity Normal
+    Class "Waystones" 
+    BaseType "Waystone (Tier 11)" "Waystone (Tier 12)" "Waystone (Tier 13)" 
+    SetTextColor 255 128 192 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 255 255 
+    SetFontSize 43
+#      MinimapIcon 1 Orange Hexagon 
+#      PlayEffect Orange
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T6-T10 - 稀有
+    Rarity Rare
+    Class "Waystones" 
+    BaseType "Waystone (Tier 6)" "Waystone (Tier 7)" "Waystone (Tier 8)" "Waystone (Tier 9)" "Waystone (Tier 10)" 
+    SetTextColor 237 222 16 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 237 222 16 
+    SetFontSize 41
+#      MinimapIcon 2 Yellow Hexagon 
+#      PlayEffect Yellow
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T6-T10 - 魔法
+    Rarity Magic
+    Class "Waystones" 
+    BaseType "Waystone (Tier 6)" "Waystone (Tier 7)" "Waystone (Tier 8)" "Waystone (Tier 9)" "Waystone (Tier 10)" 
+    SetTextColor 237 222 16 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 16 134 237 
+    SetFontSize 41
+#      MinimapIcon 2 Yellow Hexagon 
+#      PlayEffect Yellow
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T6-T10 - 普通
+    Rarity Normal
+    Class "Waystones" 
+    BaseType "Waystone (Tier 6)" "Waystone (Tier 7)" "Waystone (Tier 8)" "Waystone (Tier 9)" "Waystone (Tier 10)" 
+    SetTextColor 237 222 16 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 255 255 
+    SetFontSize 41
+#      MinimapIcon 2 Yellow Hexagon 
+#      PlayEffect Yellow
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T1-T5 - 稀有
+    Rarity Rare
+    Class "Waystones" 
+    BaseType "Waystone (Tier 1)" "Waystone (Tier 2)" "Waystone (Tier 3)" "Waystone (Tier 4)" "Waystone (Tier 5)" 
+    SetTextColor 255 255 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 237 222 16 
+    SetFontSize 38
+#      MinimapIcon 2 White Hexagon 
+#      PlayEffect White
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T1-T5 - 魔法
+    Rarity Magic
+    Class "Waystones" 
+    BaseType "Waystone (Tier 1)" "Waystone (Tier 2)" "Waystone (Tier 3)" "Waystone (Tier 4)" "Waystone (Tier 5)" 
+    SetTextColor 255 255 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 16 134 237 
+    SetFontSize 38
+#      MinimapIcon 2 White Hexagon 
+#      PlayEffect White
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - T1-T5 - 普通
+    Rarity Normal
+    Class "Waystones" 
+    BaseType "Waystone (Tier 1)" "Waystone (Tier 2)" "Waystone (Tier 3)" "Waystone (Tier 4)" "Waystone (Tier 5)" 
+    SetTextColor 255 255 255 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 255 255 255 
+    SetFontSize 38
+#      MinimapIcon 2 White Hexagon 
+#      PlayEffect White
+#      PlayAlertSound 11 300 
+#      CustomAlertSound "音效\地图.mp3" 300
+    DisableDropSound 
+
+Hide # 地图 - 常规异界地图 - 全部地图
+    Rarity Normal Magic Rare
+    Class "Waystones" 
+    BaseType "Waystone (Tier 1)" "Waystone (Tier 2)" "Waystone (Tier 3)" "Waystone (Tier 4)" "Waystone (Tier 5)" "Waystone (Tier 6)" "Waystone (Tier 7)" "Waystone (Tier 8)" "Waystone (Tier 9)" "Waystone (Tier 10)" "Waystone (Tier 11)" "Waystone (Tier 12)" "Waystone (Tier 13)" "Waystone (Tier 14)" "Waystone (Tier 15)" "Waystone (Tier 16)" 
+    SetFontSize 38
+    DisableDropSound 
+
+Show # 地图碎片 - 贪婪战书碎片
+    Class "Map Fragments" 
+    BaseType "Cowardly Fate" "Cowardly Fate" "Victorious Fate" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Pink Diamond 
+    PlayEffect Pink
+    PlayAlertSound 2 300 
+    CustomAlertSound "音效\地图碎片.mp3" 300
+    DisableDropSound 
+
+Show # 命运卡 - 占位(请不要编辑此项)
+    Class "Map Fragments" 
+    BaseType "Cowardly Fate" "Cowardly Fate" "Victorious Fate" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Pink Diamond 
+    PlayEffect Pink
+    PlayAlertSound 2 300 
+    CustomAlertSound "音效\地图碎片.mp3" 300
+    DisableDropSound 
+
+Show # 珠宝 - 传奇珠宝
+    Rarity Unique
+    Class "Jewels" 
+    SetTextColor 180 96 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 42
+    MinimapIcon 2 Brown Cross 
+    PlayEffect Brown
+#      PlayAlertSound 10 300 
+    CustomAlertSound "音效\传奇珠宝.mp3" 300
+    DisableDropSound 
+
+Show # 珠宝 - 稀有珠宝
+    Rarity Rare
+    Class "Jewels" 
+    SetTextColor 255 255 119 
+    SetBorderColor 74 230 58 
+    SetFontSize 40
+    MinimapIcon 2 White Cross 
+#      PlayAlertSound 9 300 
+    CustomAlertSound "音效\珠宝.mp3" 300
+    DisableDropSound 
+
+Show # 珠宝 - 魔法珠宝
+    Rarity Magic
+    Class "Jewels" 
+    SetTextColor 30 144 255 
+    SetBorderColor 50 230 100 
+    SetFontSize 38
+    DisableDropSound
+
+Show # 珠宝 - 普通珠宝
+    Rarity Normal
+    Class "Jewels" 
+    SetBorderColor 50 230 100 
+    SetFontSize 38
+    DisableDropSound
+
+Show # 药剂 - 传奇药剂
+    Rarity Unique
+    Class "Flasks" 
+    SetTextColor 180 96 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 42
+    MinimapIcon 1 Brown Raindrop 
+    PlayEffect Brown
+    CustomAlertSound "音效\传奇药剂.mp3" 300
+    DisableDropSound 
+
+Hide # 药剂 - 護符 - 需要高亮的護符
+    ItemLevel >= 81
+    Class "Charms" 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 136 136 255 199 
+    SetFontSize 35
+    DisableDropSound 
+
+Hide # 药剂 - 護符 - 全部護符
+    Class "Charms" 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 136 136 255 199 
+    SetFontSize 35
+    DisableDropSound 
+
+Show # 药剂 - 红药 - 需要高亮的红药
+    ItemLevel >= 81
+    Class "Life Flasks" 
+    BaseType "Ultimate Life Flask" 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 136 136 255 199 
+    SetFontSize 35
+    DisableDropSound 
+
+Hide # 药剂 - 红药 - 全部红药
+    Class "Life Flasks" 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 136 136 255 199 
+    SetFontSize 35
+    DisableDropSound 
+
+Hide # 药剂 - 蓝药 - 需要高亮的蓝药
+    ItemLevel >= 81
+    Class "Mana Flasks" 
+    BaseType "Ultimate Mana Flask" 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 136 136 255 199 
+    SetFontSize 35
+    DisableDropSound 
+
+Hide # 药剂 - 蓝药 - 全部蓝药
+    Class "Mana Flasks" 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 136 136 255 199 
+    SetFontSize 35
+    DisableDropSound 
+
+Hide # 药剂 - 所有药剂
+    Class "Flasks" 
+    SetFontSize 32
+    DisableDropSound 
+
+Show # 技能石 - 技能宝石 - 大于等级19级
+    ItemLevel >= 19
+    BaseType "Uncut Skill Gem" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 40
+    MinimapIcon 1 Orange Kite 
+#      PlayAlertSound 15 300 
+    CustomAlertSound "音效\宝石.mp3" 300
+    DisableDropSound 
+
+Hide # 技能石 - 技能宝石 - 大于等级17级
+    ItemLevel >= 17
+    BaseType "Uncut Skill Gem" 
+    SetTextColor 42 42 42 
+    SetBackgroundColor 27 162 155 
+    SetBorderColor 27 162 155 
+    SetFontSize 40
+#      MinimapIcon 1 Orange Kite 
+#      PlayAlertSound 15 300 
+#      CustomAlertSound "音效\宝石.mp3" 300
+    DisableDropSound 
+
+Hide # 技能石 - 技能宝石 - 全部等级
+    BaseType "Uncut Skill Gem" 
+    SetTextColor 42 42 42 
+    SetBackgroundColor 27 162 155 
+    SetBorderColor 27 162 155 
+    SetFontSize 40
+#      MinimapIcon 1 Orange Kite 
+#      PlayAlertSound 15 300 
+#      CustomAlertSound "音效\宝石.mp3" 300
+    DisableDropSound 
+
+Hide # 技能石 - 辅助宝石
+    BaseType "Uncut Support Gem" 
+    SetTextColor 42 42 42 
+    SetBackgroundColor 27 162 155 
+    SetBorderColor 27 162 155 
+    SetFontSize 40
+#      MinimapIcon 1 Orange Kite 
+#      PlayAlertSound 15 300 
+#      CustomAlertSound "音效\宝石.mp3" 300
+    DisableDropSound 
+
+Show # 技能石 - 精魂宝石 - 大于等级19级
+    ItemLevel >= 19
+    BaseType "Uncut Spirit Gem" 
+    SetTextColor 255 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 40
+    MinimapIcon 1 Orange Kite 
+#      PlayAlertSound 15 300 
+    CustomAlertSound "音效\宝石.mp3" 300
+    DisableDropSound 
+
+Hide # 技能石 - 精魂宝石 - 大于等级17级
+    ItemLevel >= 17
+    BaseType "Uncut Spirit Gem" 
+    SetTextColor 42 42 42 
+    SetBackgroundColor 27 162 155 
+    SetBorderColor 27 162 155 
+    SetFontSize 40
+#      MinimapIcon 1 Orange Kite 
+#      PlayAlertSound 15 300 
+#      CustomAlertSound "音效\宝石.mp3" 300
+    DisableDropSound 
+
+Hide # 技能石 - 精魂宝石 - 全部等级
+    BaseType "Uncut Spirit Gem" 
+    SetTextColor 42 42 42 
+    SetBackgroundColor 27 162 155 
+    SetBorderColor 27 162 155 
+    SetFontSize 40
+#      MinimapIcon 1 Orange Kite 
+#      PlayAlertSound 15 300 
+#      CustomAlertSound "音效\宝石.mp3" 300
+    DisableDropSound 
+
+Show # 传奇装备 - 可唯一确定传奇 - 卡兰德之触
+    Mirrored True
+    Rarity Unique
+    BaseType "Ring" 
+    SetTextColor 255 255 255 
+    SetBackgroundColor 255 40 0 230 
+    SetBorderColor 255 40 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Brown Star 
+    PlayEffect Red
+#    PlayAlertSound 6 300 
+    CustomAlertSound "音效\超级传奇.mp3" 300
+    DisableDropSound 
+
+Show # 传奇装备 - 有价值基底 - 超级高亮
+    Rarity Unique
+    BaseType "Stellar Amulet" "Sapphire Ring" "Silk Robe" "Utility Belt" "Heavy Belt" "Smuggler Coat" "Furtive Wraps" "Lazuli Ring"
+    SetTextColor 180 96 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 255 0 0 
+    SetFontSize 45
+    MinimapIcon 2 Brown UpsideDownHouse 
+    PlayEffect Red
+#    PlayAlertSound 6 300 
+    CustomAlertSound "音效\传奇装备.mp3" 300
+    DisableDropSound 
+
+Show # 传奇装备 - 有价值基底 - 次级高亮
+    Rarity Unique
+    BaseType "Trimmed Greaves" "Stone Tower Shield" "Azure Amulet" "Gold Ring" "Armoured Cap" "Emerald Ring" "Spiked Club" "Crude Bow" "Fine Bracers" "Gold Amulet" "Dualstring Bow" "Conqueror Plate" "Tribal Mask" "Ornate Belt" "Solar Amulet"
+    SetTextColor 0 0 0 
+    SetBackgroundColor 175 96 37 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 2 Brown UpsideDownHouse 
+    PlayEffect Red
+#    PlayAlertSound 6 300 
+    CustomAlertSound "音效\传奇装备.mp3" 300
+    DisableDropSound
+
+Show # 传奇装备 - 剩余全部
+    Rarity Unique
+    Class "Amulets" "Rings" "Belts" "Gloves" "Boots" "Helmets" "Body Armours" "Quivers" "Claws" "Daggers" "Wands" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Sceptres" "Staves" "Bows" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Shields" "Spears" "Flails" "Quarterstaves" "Crossbows" "Traps" "Foci" 
+    SetTextColor 180 96 0 
+    SetBackgroundColor 0 0 0 
+    SetBorderColor 180 96 0 
+    SetFontSize 42
+    MinimapIcon 1 Brown UpsideDownHouse 
+    PlayEffect Brown
+#    PlayAlertSound 6 300 
+    CustomAlertSound "音效\传奇装备.mp3" 300
+    DisableDropSound 
+    
+Show # 装备 - 普通装备 - 机会石底子
+    Rarity Normal
+    BaseType "Sapphire Ring" "Stellar Amulet"
+    SetTextColor 255 255 255 
+    SetBackgroundColor 213 131 131 
+    SetBorderColor 255 0 0 
+    SetFontSize 38
+    DisableDropSound 
+
+Show # 装备 - 需要单独高亮的底子 - 裂隙戒指
+    Rarity Normal Magic Rare
+    BaseType "Breach Ring" 
+    SetBorderColor 227 22 22 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 需要单独高亮的底子 - 白装武器
+    ItemLevel >= 81
+    Rarity Normal
+    BaseType "Expert Long Quarterstaff" "Expert Gothic Quarterstaff" "Expert Slicing Quarterstaff" "Attuned Wand" "Siphoning Wand" "Rattling Sceptre" "Expert Dualstring Bow" "Expert Zealot Bow" "Expert Bombard Crossbow" 
+    SetBorderColor 227 22 22 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 需要单独高亮的底子 - 白装法器
+    ItemLevel >= 81
+    Rarity Normal
+    BaseType "Expert Antler Focus" "Expert Crystal Focus" "Expert Plumed Focus" 
+    SetBorderColor 227 22 22 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 需要单独高亮的底子 - 白装防具
+    ItemLevel >= 81
+    Rarity Normal
+    BaseType "Expert Stone Greaves" "Expert Lizardscale Boots" "Expert Feathered Sandals" "Expert Intricate Gloves" "Expert Feathered Tiara" "Golden Mantle" "Expert Hexer's Robe" "Expert Keth Raiment" "Expert Altar Robe" "Expert Sombre Gloves" 
+    SetBorderColor 227 22 22 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 武器 - 弓(专家)
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Bows" 
+    BaseType "Expert Dualstring Bow" "Expert Zealot Bow" 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 武器 - 十字弓(专家)
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Crossbows" 
+    BaseType "Expert Bombard Crossbow" 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 武器 - 细杖(专家)
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Quarterstaves" 
+    BaseType "Expert Long Quarterstaff" "Expert Gothic Quarterstaff" "Expert Slicing Quarterstaff" 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 武器 - 双手锤(专家)
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Two Hand Maces" 
+    BaseType "Expert " 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 武器 - 双手锤(低力量需求)
+    Rarity Normal Magic Rare
+    Class "Two Hand Maces"
+    BaseType "Advanced Oak Greathammer" "Advanced Forge Maul" "Advanced Cultist Greathammer" "Advanced Temple Maul" "Advanced Leaden Greathammer"
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 武器 - 单手锤(专家)
+    ItemLevel >= 75
+    Rarity Rare
+    Class "One Hand Maces" 
+    BaseType "Expert " 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 武器 - 长杖
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Staves" 
+    BaseType "Chiming Staff"
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 武器 - 权杖
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Sceptres"
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 武器 - 法杖
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Wands" 
+    BaseType "Attuned Wand" "Siphoning Wand"
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 副手 - 法器(专家)
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Foci" 
+    BaseType "Expert Antler Focus" "Expert Crystal Focus" "Expert Plumed Focus" 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 副手 - 箭袋
+    ItemLevel >= 75
+    Rarity Rare
+    Class "Quivers" 
+    BaseType "Primed Quiver" "Visceral Quiver"
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 副手 - 盾牌(专家) - 纯力量
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Shields" 
+    BaseType "Expert " 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 副手 - 盾牌(专家) - 纯敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Shields" 
+    BaseType "Expert " 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 副手 - 盾牌(专家) - 力量&敏捷
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Shields" 
+    BaseType "Expert " 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 副手 - 盾牌(专家) - 力量&智慧
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Shields" 
+    BaseType "Expert " 
+    SetBorderColor 175 96 37 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 头盔(专家) - 纯力量
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Helmets" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 头盔(专家) - 纯敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Helmets" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 头盔(专家) - 纯智慧
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Helmets" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 头盔(专家) - 力量&敏捷
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Helmets" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 头盔(专家) - 力量&智慧
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Helmets" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 头盔(专家) - 智慧&敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Helmets" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 手套(专家) - 纯力量
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Gloves" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 手套(专家) - 纯敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Gloves" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 手套(专家) - 纯智慧
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Gloves" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 手套(专家) - 力量&敏捷
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Gloves" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 手套(专家) - 力量&智慧
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Gloves" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 手套(专家) - 智慧&敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Gloves" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 鞋子(专家) - 纯力量
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Boots" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 鞋子(专家) - 纯敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Boots" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 鞋子(专家) - 纯智慧
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Boots" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 鞋子(专家) - 力量&敏捷
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Boots" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 鞋子(专家) - 力量&智慧
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Boots" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 鞋子(专家) - 智慧&敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Boots" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 衣服(专家) - 纯力量
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Body Armours" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 衣服(专家) - 纯敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Body Armours" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 衣服(专家) - 纯智慧
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Body Armours" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 衣服(专家) - 力量&敏捷
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion > 0
+    BaseEnergyShield = 0
+    Rarity Rare
+    Class "Body Armours" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 防具 - 衣服(专家) - 力量&智慧
+    ItemLevel >= 75
+    BaseArmour > 0
+    BaseEvasion = 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Body Armours" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 防具 - 衣服(专家) - 智慧&敏捷
+    ItemLevel >= 75
+    BaseArmour = 0
+    BaseEvasion > 0
+    BaseEnergyShield > 0
+    Rarity Rare
+    Class "Body Armours" 
+    BaseType "Expert " 
+    SetBorderColor 184 218 242 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 首饰 - 项链(黄)
+    Rarity Rare
+    Class "Amulets" 
+    SetBorderColor 254 224 85 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 首饰 - 项链(蓝)
+    Rarity Magic
+    Class "Amulets" 
+    SetBorderColor 136 136 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 首饰 - 项链(白)
+    Rarity Normal
+    Class "Amulets" 
+    SetBorderColor 214 209 188 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 首饰 - 戒指(黄)
+    Rarity Rare
+    Class "Rings" 
+    SetBorderColor 254 224 85 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 首饰 - 戒指(蓝)
+    Rarity Magic
+    Class "Rings" 
+    SetBorderColor 136 136 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 首饰 - 戒指(白)
+    Rarity Normal
+    Class "Rings" 
+    SetBorderColor 214 209 188 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 装备 - 鉴黄装备 - 首饰 - 腰带(黄)
+    Rarity Rare
+    Class "Belts" 
+    SetBorderColor 254 224 85 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 首饰 - 腰带(蓝)
+    Rarity Magic
+    Class "Belts" 
+    SetBorderColor 136 136 255 
+    SetFontSize 40
+    DisableDropSound 
+
+Hide # 装备 - 鉴黄装备 - 首饰 - 腰带(白)
+    Rarity Normal
+    Class "Belts" 
+    SetBorderColor 214 209 188 
+    SetFontSize 40
+    DisableDropSound 
+
+Show # 杂项 - 遗物 - 传奇遗物
+    Rarity Unique
+    Class "Relics" 
+    SetTextColor 180 96 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 180 96 0 
+    SetFontSize 45
+    MinimapIcon 0 Brown Triangle 
+    PlayEffect Brown
+#      PlayAlertSound 6 300 
+    CustomAlertSound "音效\传奇遗物.mp3" 300
+    DisableDropSound 
+
+Show # 杂项 - 遗物 - 普通遗物
+    Rarity Normal Magic Rare
+    Class "Relics" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 150 219 237 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 43
+    MinimapIcon 2 Cyan Triangle 
+    PlayEffect Cyan
+#      PlayAlertSound 5 300 
+    CustomAlertSound "音效\遗物.mp3" 300
+    DisableDropSound 
+
+Show # 杂项 - 巅峰钥匙 - 全部
+    Class "Pinnacle Keys" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+    MinimapIcon 0 Green Diamond 
+    PlayEffect Green
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\地图碎片.mp3" 300
+    DisableDropSound 
+
+Hide # 杂项 - 试炼代币 - >=75
+    ItemLevel >= 75
+    Class "Trial Coins" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+#      MinimapIcon 0 Green Diamond 
+#      PlayEffect Green
+#      PlayAlertSound 4 300 
+#      CustomAlertSound "音效\试炼代币.mp3" 300
+    DisableDropSound 
+
+Hide # 杂项 - 试炼代币 - 全部
+    Class "Trial Coins" 
+    SetTextColor 0 0 0 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 0 0 0 
+    SetFontSize 45
+#      MinimapIcon 0 Green Diamond 
+#      PlayEffect Green
+#      PlayAlertSound 4 300 
+#      CustomAlertSound "音效\试炼代币.mp3" 300
+    DisableDropSound 
+
+Show # 杂项 - 面板(墓碑) - 需要高亮的
+    Class "Tablet" 
+    BaseType "Breach Precursor Tablet" "Expedition Precursor Tablet" "Ritual Precursor Tablet" "Delirium Precursor Tablet" "Precursor Tablet" "Overseer Precursor Tablet"
+    SetTextColor 153 63 131 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 153 63 131 
+    SetFontSize 45
+    MinimapIcon 0 Green Diamond 
+    PlayEffect Green
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\墓碑.mp3" 300
+    DisableDropSound 
+
+Show # 杂项 - 面板(墓碑) - 全部
+    Class "Tablet" 
+    BaseType "Breach Precursor Tablet" "Expedition Precursor Tablet" "Ritual Precursor Tablet" "Delirium Precursor Tablet" "Precursor Tablet" "Overseer Precursor Tablet"
+    SetTextColor 153 63 131 
+    SetBackgroundColor 255 255 255 
+    SetBorderColor 153 63 131 
+    SetFontSize 45
+    MinimapIcon 0 Green Diamond 
+    PlayEffect Green
+#      PlayAlertSound 4 300 
+    CustomAlertSound "音效\墓碑.mp3" 300
+    DisableDropSound 
+
+Show # 杂项 - 任务物品
+    Class "Quest Items" 
+    SetTextColor 74 230 58 
+    SetBackgroundColor 12 54 20 
+    SetBorderColor 0 0 0 0 
+    SetFontSize 43
+    MinimapIcon 0 Orange Triangle 
+    PlayEffect Orange
+#      PlayAlertSound 9 300 
+    CustomAlertSound "音效\任务物品.mp3" 300
+    DisableDropSound 
+
+Hide # 全局设置 - 装备 - 稀有装备
+    Rarity Rare
+    Class "Amulets" "Rings" "Belts" "Gloves" "Boots" "Helmets" "Body Armours" "Quivers" "Claws" "Daggers" "Wands" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Sceptres" "Staves" "Bows" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Shields" "Spears" "Flails" "Quarterstaves" "Crossbows" "Traps" "Foci"
+    SetFontSize 38
+    DisableDropSound 
+
+Hide # 全局设置 - 装备 - 魔法装备
+    Rarity Magic
+    Class "Amulets" "Rings" "Belts" "Gloves" "Boots" "Helmets" "Body Armours" "Quivers" "Claws" "Daggers" "Wands" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Sceptres" "Staves" "Bows" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Shields" "Spears" "Flails" "Quarterstaves" "Crossbows" "Traps" "Foci"
+    SetFontSize 36
+    DisableDropSound 
+
+Hide # 全局设置 - 装备 - 白色装备
+    Rarity Normal
+    Class "Amulets" "Rings" "Belts" "Gloves" "Boots" "Helmets" "Body Armours" "Quivers" "Claws" "Daggers" "Wands" "One Hand Axes" "One Hand Maces" "One Hand Swords" "Sceptres" "Staves" "Bows" "Two Hand Axes" "Two Hand Maces" "Two Hand Swords" "Shields" "Spears" "Flails" "Quarterstaves" "Crossbows" "Traps" "Foci"
+    SetFontSize 34
+    DisableDropSound 

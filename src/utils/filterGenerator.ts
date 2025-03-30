@@ -1,12 +1,30 @@
 
-import type { FilterOption } from '../components/options/filterOptions';
-import { currencyOptions } from '../components/options/CurrencyOptions';
-import { equipmentOptions } from '../components/options/EquipmentOptions';
-import { jewelOptions } from '../components/options/JewelOptions';
-import { flaskOptions } from '../components/options/FlaskOptions';
+/**
+
+ * 生成过滤器内容的工具函数
+
+ * 
+
+ * @param currencyCheckedList - 货币物品过滤列表
+
+ * @param equipmentCheckedList - 装备物品过滤列表  
+
+ * @param jewelCheckedList - 珠宝物品过滤列表
+
+ * @param flaskCheckedList - 药剂物品过滤列表
+
+ * @param skillGemCheckedList - 技能宝石过滤列表
+
+ * @param uniqueCheckedList - 传奇物品过滤列表
+
+ * @param normalEquipmentCheckedList - 普通装备过滤列表
+
+ * @returns 生成的过滤器内容字符串。如果所有列表都为空则返回空字符串
+
+ */
+
 import { skillGemOptions } from '../components/options/SkillGemOptions';
-import { uniqueOptions } from '../components/options/UniqueOptions';
-import { generateBasicRule, type FilterRuleOptions } from './filterRules';
+import { generateRule, type FilterRuleOptions } from './rules';
 
 interface FilterItem {
     value: string;
@@ -23,7 +41,6 @@ function generateHeader(): string {
 function generateCurrencyRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = currencyOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -32,7 +49,7 @@ function generateCurrencyRules(items: FilterItem[]): string {
                 color: item.color,
                 bgColor: item.bgColor
             };
-            return generateBasicRule(ruleOptions);
+            return generateRule(ruleOptions);
         })
         .join('\n\n');
 }
@@ -40,7 +57,6 @@ function generateCurrencyRules(items: FilterItem[]): string {
 function generateEquipmentRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = equipmentOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -49,7 +65,7 @@ function generateEquipmentRules(items: FilterItem[]): string {
                 color: item.color,
                 bgColor: item.bgColor
             };
-            return generateBasicRule(ruleOptions);
+            return generateRule(ruleOptions);
         })
         .join('\n\n');
 }
@@ -57,7 +73,6 @@ function generateEquipmentRules(items: FilterItem[]): string {
 function generateJewelRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = jewelOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -66,7 +81,7 @@ function generateJewelRules(items: FilterItem[]): string {
                 color: item.color,
                 bgColor: item.bgColor
             };
-            return generateBasicRule(ruleOptions);
+            return generateRule(ruleOptions);
         })
         .join('\n\n');
 }
@@ -74,7 +89,6 @@ function generateJewelRules(items: FilterItem[]): string {
 function generateFlaskRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = flaskOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -83,7 +97,7 @@ function generateFlaskRules(items: FilterItem[]): string {
                 color: item.color,
                 bgColor: item.bgColor
             };
-            return generateBasicRule(ruleOptions);
+            return generateRule(ruleOptions);
         })
         .join('\n\n');
 }
@@ -101,7 +115,7 @@ function generateSkillGemRules(items: FilterItem[]): string {
                 bgColor: item.bgColor,
                 tap: option?.tap
             };
-            return generateBasicRule(ruleOptions);
+            return generateRule(ruleOptions);
         })
         .join('\n\n');
 }
@@ -109,7 +123,6 @@ function generateSkillGemRules(items: FilterItem[]): string {
 function generateUniqueRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = uniqueOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -118,7 +131,7 @@ function generateUniqueRules(items: FilterItem[]): string {
                 color: item.color,
                 bgColor: item.bgColor
             };
-            return generateBasicRule(ruleOptions);
+            return generateRule(ruleOptions);
         })
         .join('\n\n');
 }
@@ -126,7 +139,6 @@ function generateUniqueRules(items: FilterItem[]): string {
 function generateNormalEquipmentRules(items: FilterItem[]): string {
     return items
         .map((item) => {
-            const option = equipmentOptions.find((opt) => opt.value === item.value && opt.label === item.label);
             const ruleOptions: FilterRuleOptions = {
                 label: item.label,
                 value: item.value,
@@ -135,7 +147,7 @@ function generateNormalEquipmentRules(items: FilterItem[]): string {
                 color: item.color,
                 bgColor: item.bgColor
             };
-            return generateBasicRule(ruleOptions);
+            return generateRule(ruleOptions);
         })
         .join('\n\n');
 }

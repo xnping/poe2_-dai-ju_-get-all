@@ -19,3 +19,11 @@ app.use(Antd)
 // 在挂载应用之前初始化主题
 initTheme();
 app.mount('#app')
+
+// 等待应用加载完成后启用过渡效果
+window.addEventListener('load', () => {
+    // 给一个小延迟确保所有样式都已应用
+    setTimeout(() => {
+        document.documentElement.classList.add('theme-transition-ready');
+    }, 100);
+});

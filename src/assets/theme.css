@@ -20,5 +20,9 @@
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    transition: all 0.3s;
+}
+
+/* Only apply transitions after initial load */
+.theme-transition-ready body {
+    transition: background-color 0.3s, color 0.3s;
 }
