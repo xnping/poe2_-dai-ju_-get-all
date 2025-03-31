@@ -12,7 +12,7 @@ export interface FilterItem {
     bgColor?: string;
 }
 
-export type FilterType = 'currency' | 'equipment' | 'jewel' | 'flask' | 'skillgem' | 'unique' | 'normalequipment' | 'misc';
+export type FilterType = 'currency' | 'equipment' | 'jewel' | 'flask' | 'skillgem' | 'unique' | 'normalequipment' | 'misc' | 'global';
 
 export interface ItemFilterProps {
     type: FilterType;

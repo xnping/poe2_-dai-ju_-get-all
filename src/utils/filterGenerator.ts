@@ -212,7 +212,8 @@ export function generateFilterContent(
     skillGemCheckedList: FilterItem[],
     uniqueCheckedList: FilterItem[],
     normalEquipmentCheckedList: FilterItem[],
-    miscCheckedList: FilterItem[]
+    miscCheckedList: FilterItem[],
+    globalCheckedList: FilterItem[]
 ): string {
     if (currencyCheckedList.length === 0 &&
         equipmentCheckedList.length === 0 &&
@@ -221,7 +222,8 @@ export function generateFilterContent(
         skillGemCheckedList.length === 0 &&
         uniqueCheckedList.length === 0 &&
         normalEquipmentCheckedList.length === 0 &&
-        miscCheckedList.length === 0) {
+        miscCheckedList.length === 0 &&
+        globalCheckedList.length === 0) {
         return "";
     }
 
@@ -235,7 +237,21 @@ export function generateFilterContent(
     const normalEquipmentRules = generateNormalEquipmentRules(normalEquipmentCheckedList);
     const miscRules = generateMiscRules(miscCheckedList);
 
+    // 生成全局规则（应该放在最前面，因为它们是基础规则）
+    const globalRules = globalCheckedList.map((item) => {
+        const ruleOptions: FilterRuleOptions = {
+            label: item.label,
+            value: item.value,
+            soundEnabled: item.soundEnabled,
+            type: 'global',
+            color: item.color,
+            bgColor: item.bgColor
+        };
+        return generateRule(ruleOptions);
+    }).join('\n\n');
+
     const rules = [
+        globalRules,  // 全局规则放在最前面
         currencyRules,
         equipmentRules,
         jewelRules,

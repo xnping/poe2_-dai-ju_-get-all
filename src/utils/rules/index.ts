@@ -8,6 +8,7 @@ import { generateSkillGemRule } from './skillGemRules';
 import { generateUniqueRule } from './uniqueRules';
 import { generateNormalEquipmentRule } from './normalEquipmentRules';
 import { generateMiscRule } from './miscRules';
+import { generateGlobalRule } from './globalRules';
 
 export function generateRule(options: FilterRuleOptions): string {
     switch (options.type) {
@@ -27,6 +28,8 @@ export function generateRule(options: FilterRuleOptions): string {
             return generateNormalEquipmentRule(options);
         case 'misc':
             return generateMiscRule(options);
+        case 'global':
+            return generateGlobalRule(options);
         default:
             throw new Error(`Unknown filter type: ${options.type}`);
     }

@@ -79,6 +79,16 @@
             </template>
             <MiscFilterContainer v-model:modelValue="miscCheckedList" />
         </a-collapse-panel>
+
+        <a-collapse-panel key="9">
+            <template #header>
+                <span class="panel-header">
+                    <SettingOutlined class="panel-icon global-icon" />
+                    全局设置
+                </span>
+            </template>
+            <GlobalFilterContainer v-model:modelValue="globalCheckedList" />
+        </a-collapse-panel>
     </a-collapse>
 </template>
 
@@ -96,6 +106,7 @@ import {
     CrownTwoTone,
     InboxOutlined,
     AppstoreOutlined,
+    SettingOutlined,
 } from '@ant-design/icons-vue';
 
 // Component imports
@@ -107,6 +118,7 @@ import FlaskFilterContainer from './FlaskFilterContainer.vue';
 import SkillGemFilterContainer from './SkillGemFilterContainer.vue';
 import UniqueFilterContainer from './UniqueFilterContainer.vue';
 import NormalEquipmentFilterContainer from './NormalEquipmentFilterContainer.vue';
+import GlobalFilterContainer from './GlobalFilterContainer.vue';
 
 // Type imports
 import type { FilterItem } from '../ItemFilter/types';
@@ -126,6 +138,7 @@ const skillGemCheckedList = ref<FilterItem[]>([]);
 const uniqueCheckedList = ref<FilterItem[]>([]);
 const normalEquipmentCheckedList = ref<FilterItem[]>([]);
 const miscCheckedList = ref<FilterItem[]>([]);
+const globalCheckedList = ref<FilterItem[]>([]);
 
 // Watch for changes
 watch(
@@ -137,7 +150,8 @@ watch(
         skillGemCheckedList,
         uniqueCheckedList,
         normalEquipmentCheckedList,
-        miscCheckedList
+        miscCheckedList,
+        globalCheckedList
     ],
     () => {
         // Auto-save logic can be added here
@@ -154,6 +168,7 @@ defineExpose({
     skillGemCheckedList,
     uniqueCheckedList,
     normalEquipmentCheckedList,
-    miscCheckedList
+    miscCheckedList,
+    globalCheckedList
 });
 </script>

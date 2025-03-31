@@ -44,6 +44,7 @@ const filterContent = computed(() => {
         uniqueCheckedList,
         normalEquipmentCheckedList,
         miscCheckedList,
+        globalCheckedList,
     } = filterPanelsRef.value;
 
     return generateFilterContent(
@@ -54,7 +55,8 @@ const filterContent = computed(() => {
         skillGemCheckedList,
         uniqueCheckedList,
         normalEquipmentCheckedList,
-        miscCheckedList
+        miscCheckedList,
+        globalCheckedList
     );
 });
 
@@ -70,6 +72,7 @@ const hasSelectedFilters = computed(() => {
         uniqueCheckedList,
         normalEquipmentCheckedList,
         miscCheckedList,
+        globalCheckedList,
     } = filterPanelsRef.value;
 
     return currencyCheckedList.length > 0 ||
@@ -79,7 +82,8 @@ const hasSelectedFilters = computed(() => {
         skillGemCheckedList.length > 0 ||
         uniqueCheckedList.length > 0 ||
         normalEquipmentCheckedList.length > 0 ||
-        miscCheckedList.length > 0;
+        miscCheckedList.length > 0 ||
+        globalCheckedList.length > 0;
 });
 
 const showPreview = () => {
