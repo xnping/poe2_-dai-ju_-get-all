@@ -3,16 +3,20 @@
         <div v-for="item in checkedList" :key="`${item.value}-${item.label}`" class="settings-item"
             :class="{ 'active': isActive(item.value, item.label) }">
             <div class="option-label">
-                <component :is="getOptionIcon(item.value)" />
                 {{ item.label }}设置：
             </div>
             <div class="settings-content">
-                <div class="sound-control">
-                    <a-switch v-model:checked="item.soundEnabled" size="small"
-                        @change="handleSoundChange($event, item.value, item.label)" />
-                    <span class="sound-status">
-                        {{ item.soundEnabled ? "音效开启" : "音效关闭" }}
-                    </span>
+                <div class="settings-row">
+                    <div class="sound-control">
+                        <a-switch v-model:checked="item.soundEnabled" size="small"
+                            @change="handleSoundChange($event, item.value, item.label)" />
+                        <span class="sound-status">
+                            {{ item.soundEnabled ? "音效开启" : "音效关闭" }}
+                        </span>
+                    </div>
+                    <a-button type="primary" size="small" class="export-button" @click="handleExportSingle(item)">
+                        导出此物品
+                    </a-button>
                 </div>
                 <div class="color-pickers">
                     <div class="color-picker">
@@ -37,15 +41,19 @@ import type { FilterItem, FilterOption } from '../types';
 import { getOptionIcon } from '../utils/iconMapping';
 import '../styles/FilterSettings.css';
 
-defineProps<{
+interface Props {
     checkedList: FilterItem[];
     options: FilterOption[];
-}>();
+    type: string;  // 添加type属性
+}
+
+const props = defineProps<Props>();
 
 const emit = defineEmits<{
     (e: 'updateSound', value: string, enabled: boolean, label: string): void;
     (e: 'updateColor', value: string, color: string, label: string): void;
     (e: 'updateBgColor', value: string, color: string, label: string): void;
+    (e: 'exportSingle', item: FilterItem): void;  // 添加导出单个物品的事件
 }>();
 
 // 活动状态管理
@@ -86,4 +94,23 @@ const handleBgColorChange = (e: Event, value: string, label: string) => {
         }
     }, 1000);
 };
+
+// 添加导出单个物品的处理函数
+const handleExportSingle = (item: FilterItem) => {
+    emit('exportSingle', item);
+};
 </script>
+
+<style>
+.settings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.export-button {
+    margin-left: 16px;
+    font-size: 12px;
+}
+</style>

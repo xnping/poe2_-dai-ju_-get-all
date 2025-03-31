@@ -7,6 +7,7 @@ import { generateFlaskRule } from './flaskRules';
 import { generateSkillGemRule } from './skillGemRules';
 import { generateUniqueRule } from './uniqueRules';
 import { generateNormalEquipmentRule } from './normalEquipmentRules';
+import { generateMiscRule } from './miscRules';
 
 export function generateRule(options: FilterRuleOptions): string {
     switch (options.type) {
@@ -24,6 +25,8 @@ export function generateRule(options: FilterRuleOptions): string {
             return generateUniqueRule(options);
         case 'normalequipment':
             return generateNormalEquipmentRule(options);
+        case 'misc':
+            return generateMiscRule(options);
         default:
             throw new Error(`Unknown filter type: ${options.type}`);
     }

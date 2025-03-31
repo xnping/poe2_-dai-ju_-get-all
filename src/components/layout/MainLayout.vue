@@ -43,6 +43,7 @@ const filterContent = computed(() => {
         skillGemCheckedList,
         uniqueCheckedList,
         normalEquipmentCheckedList,
+        miscCheckedList,
     } = filterPanelsRef.value;
 
     return generateFilterContent(
@@ -52,7 +53,8 @@ const filterContent = computed(() => {
         flaskCheckedList,
         skillGemCheckedList,
         uniqueCheckedList,
-        normalEquipmentCheckedList
+        normalEquipmentCheckedList,
+        miscCheckedList
     );
 });
 
@@ -67,6 +69,7 @@ const hasSelectedFilters = computed(() => {
         skillGemCheckedList,
         uniqueCheckedList,
         normalEquipmentCheckedList,
+        miscCheckedList,
     } = filterPanelsRef.value;
 
     return currencyCheckedList.length > 0 ||
@@ -75,7 +78,8 @@ const hasSelectedFilters = computed(() => {
         flaskCheckedList.length > 0 ||
         skillGemCheckedList.length > 0 ||
         uniqueCheckedList.length > 0 ||
-        normalEquipmentCheckedList.length > 0;
+        normalEquipmentCheckedList.length > 0 ||
+        miscCheckedList.length > 0;
 });
 
 const showPreview = () => {

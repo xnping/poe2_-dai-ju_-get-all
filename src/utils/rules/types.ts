@@ -4,7 +4,7 @@ export interface FilterRuleOptions {
     label: string;
     value: string;
     soundEnabled: boolean;
-    type: 'currency' | 'equipment' | 'jewel' | 'flask' | 'skillgem' | 'unique' | 'normalequipment';
+    type: 'currency' | 'equipment' | 'jewel' | 'flask' | 'skillgem' | 'unique' | 'normalequipment' | 'misc';
     color?: string;
     bgColor?: string;
     tap?: string;

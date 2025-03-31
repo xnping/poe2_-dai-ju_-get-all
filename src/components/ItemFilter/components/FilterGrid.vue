@@ -8,7 +8,6 @@
             <a-checkbox :value="option.value" :checked="isChecked(option.value, option.label)"
                 :disabled="isDisabled(option.value)" @change="handleChange($event, option)">
                 <div class="checkbox-content">
-                    <component :is="getOptionIcon(option.value)" class="option-icon" />
                     <span class="checkbox-label" :title="option.label">{{ option.label }}</span>
                 </div>
             </a-checkbox>
@@ -21,7 +20,6 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { getOptionIcon } from '../utils/iconMapping';
 import type { FilterOption, FilterItem } from '../types';
 import '../styles/FilterGrid.css';
 

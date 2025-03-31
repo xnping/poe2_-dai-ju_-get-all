@@ -152,6 +152,58 @@ function generateNormalEquipmentRules(items: FilterItem[]): string {
         .join('\n\n');
 }
 
+function generateMiscRules(items: FilterItem[]): string {
+    return items
+        .map((item) => {
+            const ruleOptions: FilterRuleOptions = {
+                label: item.label,
+                value: item.value,
+                soundEnabled: item.soundEnabled,
+                type: 'misc',
+                color: item.color,
+                bgColor: item.bgColor
+            };
+            return generateRule(ruleOptions);
+        })
+        .join('\n\n');
+}
+
+export function generateSingleItemFilter(item: FilterItem, type: string): string {
+    const header = generateHeader();
+    let rule = '';
+
+    switch (type) {
+        case 'currency':
+            rule = generateCurrencyRules([item]);
+            break;
+        case 'equipment':
+            rule = generateEquipmentRules([item]);
+            break;
+        case 'jewel':
+            rule = generateJewelRules([item]);
+            break;
+        case 'flask':
+            rule = generateFlaskRules([item]);
+            break;
+        case 'skillgem':
+            rule = generateSkillGemRules([item]);
+            break;
+        case 'unique':
+            rule = generateUniqueRules([item]);
+            break;
+        case 'normalequipment':
+            rule = generateNormalEquipmentRules([item]);
+            break;
+        case 'misc':
+            rule = generateMiscRules([item]);
+            break;
+        default:
+            return '';
+    }
+
+    return header + rule;
+}
+
 export function generateFilterContent(
     currencyCheckedList: FilterItem[],
     equipmentCheckedList: FilterItem[],
@@ -159,7 +211,8 @@ export function generateFilterContent(
     flaskCheckedList: FilterItem[],
     skillGemCheckedList: FilterItem[],
     uniqueCheckedList: FilterItem[],
-    normalEquipmentCheckedList: FilterItem[]
+    normalEquipmentCheckedList: FilterItem[],
+    miscCheckedList: FilterItem[]
 ): string {
     if (currencyCheckedList.length === 0 &&
         equipmentCheckedList.length === 0 &&
@@ -167,7 +220,8 @@ export function generateFilterContent(
         flaskCheckedList.length === 0 &&
         skillGemCheckedList.length === 0 &&
         uniqueCheckedList.length === 0 &&
-        normalEquipmentCheckedList.length === 0) {
+        normalEquipmentCheckedList.length === 0 &&
+        miscCheckedList.length === 0) {
         return "";
     }
 
@@ -179,6 +233,7 @@ export function generateFilterContent(
     const skillGemRules = generateSkillGemRules(skillGemCheckedList);
     const uniqueRules = generateUniqueRules(uniqueCheckedList);
     const normalEquipmentRules = generateNormalEquipmentRules(normalEquipmentCheckedList);
+    const miscRules = generateMiscRules(miscCheckedList);
 
     const rules = [
         currencyRules,
@@ -187,7 +242,8 @@ export function generateFilterContent(
         flaskRules,
         skillGemRules,
         uniqueRules,
-        normalEquipmentRules
+        normalEquipmentRules,
+        miscRules
     ].filter(rule => rule.length > 0);
 
     return header + rules.join('\n\n');
